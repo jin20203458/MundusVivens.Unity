@@ -23,7 +23,10 @@ namespace MundusVivens.Unity
                 Debug.Log("[gRPC] Initializing gRPC Channel using YetAnotherHttpHandler...");
 
                 // 1. YetAnotherHttpHandler 설정 (Unity에서 HTTP/2 통신을 지원하기 위해 필수)
-                var handler = new YetAnotherHttpHandler();
+                var handler = new YetAnotherHttpHandler()
+                {
+                    Http2Only = true
+                };
 
                 // 2. gRPC 채널 생성
                 _channel = GrpcChannel.ForAddress(serverUrl, new GrpcChannelOptions
