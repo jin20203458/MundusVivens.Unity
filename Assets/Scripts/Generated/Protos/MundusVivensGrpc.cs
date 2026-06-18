@@ -69,6 +69,10 @@ namespace MundusVivens.Prototype.Protos {
     static readonly grpc::Marshaller<global::MundusVivens.Prototype.Protos.GetDialogueResultRequest> __Marshaller_mundusvivens_GetDialogueResultRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::MundusVivens.Prototype.Protos.GetDialogueResultRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::MundusVivens.Prototype.Protos.GetDialogueResultResponse> __Marshaller_mundusvivens_GetDialogueResultResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::MundusVivens.Prototype.Protos.GetDialogueResultResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::MundusVivens.Prototype.Protos.SubscribeRequest> __Marshaller_mundusvivens_SubscribeRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::MundusVivens.Prototype.Protos.SubscribeRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::MundusVivens.Prototype.Protos.WorldEvent> __Marshaller_mundusvivens_WorldEvent = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::MundusVivens.Prototype.Protos.WorldEvent.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::MundusVivens.Prototype.Protos.TriggerDialogueRequest, global::MundusVivens.Prototype.Protos.TriggerDialogueResponse> __Method_TriggerDialogue = new grpc::Method<global::MundusVivens.Prototype.Protos.TriggerDialogueRequest, global::MundusVivens.Prototype.Protos.TriggerDialogueResponse>(
@@ -118,6 +122,14 @@ namespace MundusVivens.Prototype.Protos {
         __Marshaller_mundusvivens_GetDialogueResultRequest,
         __Marshaller_mundusvivens_GetDialogueResultResponse);
 
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::MundusVivens.Prototype.Protos.SubscribeRequest, global::MundusVivens.Prototype.Protos.WorldEvent> __Method_SubscribeWorldEvents = new grpc::Method<global::MundusVivens.Prototype.Protos.SubscribeRequest, global::MundusVivens.Prototype.Protos.WorldEvent>(
+        grpc::MethodType.ServerStreaming,
+        __ServiceName,
+        "SubscribeWorldEvents",
+        __Marshaller_mundusvivens_SubscribeRequest,
+        __Marshaller_mundusvivens_WorldEvent);
+
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
@@ -166,6 +178,19 @@ namespace MundusVivens.Prototype.Protos {
       /// <returns>The response to send back to the client (wrapped by a task).</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::System.Threading.Tasks.Task<global::MundusVivens.Prototype.Protos.GetDialogueResultResponse> GetDialogueResult(global::MundusVivens.Prototype.Protos.GetDialogueResultRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
+      /// 🆕 관찰자 모드: 실시간 이벤트 스트림 구독 (Phase 4-B 신규)
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="responseStream">Used for sending responses back to the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>A task indicating completion of the handler.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task SubscribeWorldEvents(global::MundusVivens.Prototype.Protos.SubscribeRequest request, grpc::IServerStreamWriter<global::MundusVivens.Prototype.Protos.WorldEvent> responseStream, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -347,6 +372,30 @@ namespace MundusVivens.Prototype.Protos {
       {
         return CallInvoker.AsyncUnaryCall(__Method_GetDialogueResult, null, options, request);
       }
+      /// <summary>
+      /// 🆕 관찰자 모드: 실시간 이벤트 스트림 구독 (Phase 4-B 신규)
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncServerStreamingCall<global::MundusVivens.Prototype.Protos.WorldEvent> SubscribeWorldEvents(global::MundusVivens.Prototype.Protos.SubscribeRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return SubscribeWorldEvents(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// 🆕 관찰자 모드: 실시간 이벤트 스트림 구독 (Phase 4-B 신규)
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncServerStreamingCall<global::MundusVivens.Prototype.Protos.WorldEvent> SubscribeWorldEvents(global::MundusVivens.Prototype.Protos.SubscribeRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncServerStreamingCall(__Method_SubscribeWorldEvents, null, options, request);
+      }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       protected override MundusVivensGrpcClient NewInstance(ClientBaseConfiguration configuration)
@@ -366,7 +415,8 @@ namespace MundusVivens.Prototype.Protos {
           .AddMethod(__Method_InjectGossip, serviceImpl.InjectGossip)
           .AddMethod(__Method_UpdateAgentStatus, serviceImpl.UpdateAgentStatus)
           .AddMethod(__Method_ProcessWorldTick, serviceImpl.ProcessWorldTick)
-          .AddMethod(__Method_GetDialogueResult, serviceImpl.GetDialogueResult).Build();
+          .AddMethod(__Method_GetDialogueResult, serviceImpl.GetDialogueResult)
+          .AddMethod(__Method_SubscribeWorldEvents, serviceImpl.SubscribeWorldEvents).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the service binding logic.
@@ -382,6 +432,7 @@ namespace MundusVivens.Prototype.Protos {
       serviceBinder.AddMethod(__Method_UpdateAgentStatus, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::MundusVivens.Prototype.Protos.UpdateAgentStatusRequest, global::MundusVivens.Prototype.Protos.UpdateAgentStatusResponse>(serviceImpl.UpdateAgentStatus));
       serviceBinder.AddMethod(__Method_ProcessWorldTick, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::MundusVivens.Prototype.Protos.ProcessWorldTickRequest, global::MundusVivens.Prototype.Protos.ProcessWorldTickResponse>(serviceImpl.ProcessWorldTick));
       serviceBinder.AddMethod(__Method_GetDialogueResult, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::MundusVivens.Prototype.Protos.GetDialogueResultRequest, global::MundusVivens.Prototype.Protos.GetDialogueResultResponse>(serviceImpl.GetDialogueResult));
+      serviceBinder.AddMethod(__Method_SubscribeWorldEvents, serviceImpl == null ? null : new grpc::ServerStreamingServerMethod<global::MundusVivens.Prototype.Protos.SubscribeRequest, global::MundusVivens.Prototype.Protos.WorldEvent>(serviceImpl.SubscribeWorldEvents));
     }
 
   }
