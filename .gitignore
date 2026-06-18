@@ -105,3 +105,7 @@ InitTestScene*.unity*
 
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+
+# NuGetForUnity 다운로드 패키지 격리 (로컬 복원)
+/[Aa]ssets/Packages/
+/[Aa]ssets/Packages.meta
