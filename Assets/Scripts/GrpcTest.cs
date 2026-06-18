@@ -11,7 +11,7 @@ namespace MundusVivens.Unity
     public class GrpcTest : MonoBehaviour
     {
         [Header("gRPC Configuration")]
-        [SerializeField] private string serverUrl = "http://localhost:5070"; // C# Backend default port
+        [SerializeField] private string serverUrl = "http://localhost:5001"; // C# Backend default port
 
         private GrpcChannel _channel;
         private MundusVivensGrpc.MundusVivensGrpcClient _client;
