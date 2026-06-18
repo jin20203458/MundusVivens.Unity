@@ -73,6 +73,18 @@ namespace MundusVivens.Prototype.Protos {
     static readonly grpc::Marshaller<global::MundusVivens.Prototype.Protos.SubscribeRequest> __Marshaller_mundusvivens_SubscribeRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::MundusVivens.Prototype.Protos.SubscribeRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::MundusVivens.Prototype.Protos.WorldEvent> __Marshaller_mundusvivens_WorldEvent = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::MundusVivens.Prototype.Protos.WorldEvent.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::MundusVivens.Prototype.Protos.StartPlayerDialogueRequest> __Marshaller_mundusvivens_StartPlayerDialogueRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::MundusVivens.Prototype.Protos.StartPlayerDialogueRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::MundusVivens.Prototype.Protos.StartPlayerDialogueResponse> __Marshaller_mundusvivens_StartPlayerDialogueResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::MundusVivens.Prototype.Protos.StartPlayerDialogueResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::MundusVivens.Prototype.Protos.SendPlayerMessageRequest> __Marshaller_mundusvivens_SendPlayerMessageRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::MundusVivens.Prototype.Protos.SendPlayerMessageRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::MundusVivens.Prototype.Protos.SendPlayerMessageResponse> __Marshaller_mundusvivens_SendPlayerMessageResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::MundusVivens.Prototype.Protos.SendPlayerMessageResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::MundusVivens.Prototype.Protos.EndPlayerDialogueRequest> __Marshaller_mundusvivens_EndPlayerDialogueRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::MundusVivens.Prototype.Protos.EndPlayerDialogueRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::MundusVivens.Prototype.Protos.EndPlayerDialogueResponse> __Marshaller_mundusvivens_EndPlayerDialogueResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::MundusVivens.Prototype.Protos.EndPlayerDialogueResponse.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::MundusVivens.Prototype.Protos.TriggerDialogueRequest, global::MundusVivens.Prototype.Protos.TriggerDialogueResponse> __Method_TriggerDialogue = new grpc::Method<global::MundusVivens.Prototype.Protos.TriggerDialogueRequest, global::MundusVivens.Prototype.Protos.TriggerDialogueResponse>(
@@ -129,6 +141,30 @@ namespace MundusVivens.Prototype.Protos {
         "SubscribeWorldEvents",
         __Marshaller_mundusvivens_SubscribeRequest,
         __Marshaller_mundusvivens_WorldEvent);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::MundusVivens.Prototype.Protos.StartPlayerDialogueRequest, global::MundusVivens.Prototype.Protos.StartPlayerDialogueResponse> __Method_StartPlayerDialogue = new grpc::Method<global::MundusVivens.Prototype.Protos.StartPlayerDialogueRequest, global::MundusVivens.Prototype.Protos.StartPlayerDialogueResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "StartPlayerDialogue",
+        __Marshaller_mundusvivens_StartPlayerDialogueRequest,
+        __Marshaller_mundusvivens_StartPlayerDialogueResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::MundusVivens.Prototype.Protos.SendPlayerMessageRequest, global::MundusVivens.Prototype.Protos.SendPlayerMessageResponse> __Method_SendPlayerMessage = new grpc::Method<global::MundusVivens.Prototype.Protos.SendPlayerMessageRequest, global::MundusVivens.Prototype.Protos.SendPlayerMessageResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "SendPlayerMessage",
+        __Marshaller_mundusvivens_SendPlayerMessageRequest,
+        __Marshaller_mundusvivens_SendPlayerMessageResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::MundusVivens.Prototype.Protos.EndPlayerDialogueRequest, global::MundusVivens.Prototype.Protos.EndPlayerDialogueResponse> __Method_EndPlayerDialogue = new grpc::Method<global::MundusVivens.Prototype.Protos.EndPlayerDialogueRequest, global::MundusVivens.Prototype.Protos.EndPlayerDialogueResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "EndPlayerDialogue",
+        __Marshaller_mundusvivens_EndPlayerDialogueRequest,
+        __Marshaller_mundusvivens_EndPlayerDialogueResponse);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -191,6 +227,30 @@ namespace MundusVivens.Prototype.Protos {
       /// <returns>A task indicating completion of the handler.</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::System.Threading.Tasks.Task SubscribeWorldEvents(global::MundusVivens.Prototype.Protos.SubscribeRequest request, grpc::IServerStreamWriter<global::MundusVivens.Prototype.Protos.WorldEvent> responseStream, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
+      /// 🆕 참여자 모드: 플레이어-NPC 간 대화 상호작용 (Phase 4-B 신규)
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::MundusVivens.Prototype.Protos.StartPlayerDialogueResponse> StartPlayerDialogue(global::MundusVivens.Prototype.Protos.StartPlayerDialogueRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::MundusVivens.Prototype.Protos.SendPlayerMessageResponse> SendPlayerMessage(global::MundusVivens.Prototype.Protos.SendPlayerMessageRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::MundusVivens.Prototype.Protos.EndPlayerDialogueResponse> EndPlayerDialogue(global::MundusVivens.Prototype.Protos.EndPlayerDialogueRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -396,6 +456,94 @@ namespace MundusVivens.Prototype.Protos {
       {
         return CallInvoker.AsyncServerStreamingCall(__Method_SubscribeWorldEvents, null, options, request);
       }
+      /// <summary>
+      /// 🆕 참여자 모드: 플레이어-NPC 간 대화 상호작용 (Phase 4-B 신규)
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::MundusVivens.Prototype.Protos.StartPlayerDialogueResponse StartPlayerDialogue(global::MundusVivens.Prototype.Protos.StartPlayerDialogueRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return StartPlayerDialogue(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// 🆕 참여자 모드: 플레이어-NPC 간 대화 상호작용 (Phase 4-B 신규)
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::MundusVivens.Prototype.Protos.StartPlayerDialogueResponse StartPlayerDialogue(global::MundusVivens.Prototype.Protos.StartPlayerDialogueRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_StartPlayerDialogue, null, options, request);
+      }
+      /// <summary>
+      /// 🆕 참여자 모드: 플레이어-NPC 간 대화 상호작용 (Phase 4-B 신규)
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::MundusVivens.Prototype.Protos.StartPlayerDialogueResponse> StartPlayerDialogueAsync(global::MundusVivens.Prototype.Protos.StartPlayerDialogueRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return StartPlayerDialogueAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// 🆕 참여자 모드: 플레이어-NPC 간 대화 상호작용 (Phase 4-B 신규)
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::MundusVivens.Prototype.Protos.StartPlayerDialogueResponse> StartPlayerDialogueAsync(global::MundusVivens.Prototype.Protos.StartPlayerDialogueRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_StartPlayerDialogue, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::MundusVivens.Prototype.Protos.SendPlayerMessageResponse SendPlayerMessage(global::MundusVivens.Prototype.Protos.SendPlayerMessageRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return SendPlayerMessage(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::MundusVivens.Prototype.Protos.SendPlayerMessageResponse SendPlayerMessage(global::MundusVivens.Prototype.Protos.SendPlayerMessageRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_SendPlayerMessage, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::MundusVivens.Prototype.Protos.SendPlayerMessageResponse> SendPlayerMessageAsync(global::MundusVivens.Prototype.Protos.SendPlayerMessageRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return SendPlayerMessageAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::MundusVivens.Prototype.Protos.SendPlayerMessageResponse> SendPlayerMessageAsync(global::MundusVivens.Prototype.Protos.SendPlayerMessageRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_SendPlayerMessage, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::MundusVivens.Prototype.Protos.EndPlayerDialogueResponse EndPlayerDialogue(global::MundusVivens.Prototype.Protos.EndPlayerDialogueRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return EndPlayerDialogue(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::MundusVivens.Prototype.Protos.EndPlayerDialogueResponse EndPlayerDialogue(global::MundusVivens.Prototype.Protos.EndPlayerDialogueRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_EndPlayerDialogue, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::MundusVivens.Prototype.Protos.EndPlayerDialogueResponse> EndPlayerDialogueAsync(global::MundusVivens.Prototype.Protos.EndPlayerDialogueRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return EndPlayerDialogueAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::MundusVivens.Prototype.Protos.EndPlayerDialogueResponse> EndPlayerDialogueAsync(global::MundusVivens.Prototype.Protos.EndPlayerDialogueRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_EndPlayerDialogue, null, options, request);
+      }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       protected override MundusVivensGrpcClient NewInstance(ClientBaseConfiguration configuration)
@@ -416,7 +564,10 @@ namespace MundusVivens.Prototype.Protos {
           .AddMethod(__Method_UpdateAgentStatus, serviceImpl.UpdateAgentStatus)
           .AddMethod(__Method_ProcessWorldTick, serviceImpl.ProcessWorldTick)
           .AddMethod(__Method_GetDialogueResult, serviceImpl.GetDialogueResult)
-          .AddMethod(__Method_SubscribeWorldEvents, serviceImpl.SubscribeWorldEvents).Build();
+          .AddMethod(__Method_SubscribeWorldEvents, serviceImpl.SubscribeWorldEvents)
+          .AddMethod(__Method_StartPlayerDialogue, serviceImpl.StartPlayerDialogue)
+          .AddMethod(__Method_SendPlayerMessage, serviceImpl.SendPlayerMessage)
+          .AddMethod(__Method_EndPlayerDialogue, serviceImpl.EndPlayerDialogue).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the service binding logic.
@@ -433,6 +584,9 @@ namespace MundusVivens.Prototype.Protos {
       serviceBinder.AddMethod(__Method_ProcessWorldTick, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::MundusVivens.Prototype.Protos.ProcessWorldTickRequest, global::MundusVivens.Prototype.Protos.ProcessWorldTickResponse>(serviceImpl.ProcessWorldTick));
       serviceBinder.AddMethod(__Method_GetDialogueResult, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::MundusVivens.Prototype.Protos.GetDialogueResultRequest, global::MundusVivens.Prototype.Protos.GetDialogueResultResponse>(serviceImpl.GetDialogueResult));
       serviceBinder.AddMethod(__Method_SubscribeWorldEvents, serviceImpl == null ? null : new grpc::ServerStreamingServerMethod<global::MundusVivens.Prototype.Protos.SubscribeRequest, global::MundusVivens.Prototype.Protos.WorldEvent>(serviceImpl.SubscribeWorldEvents));
+      serviceBinder.AddMethod(__Method_StartPlayerDialogue, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::MundusVivens.Prototype.Protos.StartPlayerDialogueRequest, global::MundusVivens.Prototype.Protos.StartPlayerDialogueResponse>(serviceImpl.StartPlayerDialogue));
+      serviceBinder.AddMethod(__Method_SendPlayerMessage, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::MundusVivens.Prototype.Protos.SendPlayerMessageRequest, global::MundusVivens.Prototype.Protos.SendPlayerMessageResponse>(serviceImpl.SendPlayerMessage));
+      serviceBinder.AddMethod(__Method_EndPlayerDialogue, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::MundusVivens.Prototype.Protos.EndPlayerDialogueRequest, global::MundusVivens.Prototype.Protos.EndPlayerDialogueResponse>(serviceImpl.EndPlayerDialogue));
     }
 
   }
