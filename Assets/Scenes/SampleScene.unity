@@ -128,7 +128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 405616161}
-  - component: {fileID: 405616160}
+  - component: {fileID: 405616162}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -136,32 +136,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &405616160
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 405616159}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0370c0e204c33fd48b7aacd3b716307e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MundusVivens.Unity.ObserverController
-  serverUrl: http://localhost:5001
-  subscriberId: Unity_Observer_UI
-  tavernPanel: {fileID: 0}
-  churchPanel: {fileID: 0}
-  squarePanel: {fileID: 0}
-  kyleIcon: {fileID: 0}
-  evaIcon: {fileID: 0}
-  bartIcon: {fileID: 0}
-  tickText: {fileID: 0}
-  logsText: {fileID: 0}
-  logScrollRect: {fileID: 0}
-  dialogueBubbleContainer: {fileID: 0}
-  dialogueBubbleText: {fileID: 0}
-  relationshipText: {fileID: 0}
 --- !u!4 &405616161
 Transform:
   m_ObjectHideFlags: 0
@@ -177,6 +151,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &405616162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 405616159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a73ef300070cb3a4c82f9cef2dd2b3b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MundusVivens.Unity.PlayerDialogueController
+  serverUrl: http://localhost:5001
+  playerId: player
+  dialoguePanel: {fileID: 0}
+  inputField: {fileID: 0}
+  chatLogText: {fileID: 0}
+  scrollRect: {fileID: 0}
+  npcNameText: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
