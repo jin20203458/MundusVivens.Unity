@@ -118,8 +118,20 @@ public class GameManager : MonoBehaviour
             {
                 Material mat = new Material(Shader.Find("Universal Render Pipeline/Lit"));
                 if (mat.shader == null) mat = new Material(Shader.Find("Standard"));
-                mat.color = new Color(1.0f, 0.5f, 0.2f); // 주황색 캡슐
-                if (mat.HasProperty("_BaseColor")) mat.SetColor("_BaseColor", new Color(1.0f, 0.5f, 0.2f));
+                
+                Color capsuleColor = new Color(1.0f, 0.5f, 0.2f); // 기본: 주황색 (일반 NPC)
+                if (npcData.DisplayName.Contains("늑대") || npcData.DisplayName.Contains("고블린") || 
+                    npcData.DisplayName.ToLower().Contains("wolf") || npcData.DisplayName.ToLower().Contains("goblin"))
+                {
+                    capsuleColor = new Color(0.85f, 0.1f, 0.1f); // 빨간색: 몬스터
+                }
+                else if (npcData.DisplayName.Contains("플레이어") || npcData.DisplayName.ToLower().Contains("player"))
+                {
+                    capsuleColor = new Color(0.1f, 0.7f, 0.2f); // 초록색: 플레이어 아바타
+                }
+
+                mat.color = capsuleColor;
+                if (mat.HasProperty("_BaseColor")) mat.SetColor("_BaseColor", capsuleColor);
                 renderer.sharedMaterial = mat;
             }
             
