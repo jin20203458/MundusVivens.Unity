@@ -11,6 +11,8 @@ public class NpcController : MonoBehaviour
     public TMPro.TextMeshPro nameText;
     public TMPro.TextMeshPro statusText; // 감정 및 활동 표시용
 
+    public NpcSnapshot LastSnapshot { get; private set; }
+
     [Header("Movement Settings")]
     public float moveSpeed = 5.0f;
 
@@ -52,6 +54,7 @@ public class NpcController : MonoBehaviour
 
     public void UpdateStateFromServer(NpcSnapshot snapshot)
     {
+        LastSnapshot = snapshot;
         Vector3 previousTarget = _targetPosition;
         // 서버가 내려준 좌표를 목표 좌표로 설정
         _targetPosition = new Vector3(snapshot.Location.Position.X, snapshot.Location.Position.Y, snapshot.Location.Position.Z);

@@ -39,33 +39,87 @@ public class NetworkManager : MonoBehaviour
         }
     }
 
+    private bool _isDisconnected = false;
+
     private void Start()
     {
-        ConnectToServer();
+        StartCoroutine(ConnectAsyncRoutine());
     }
 
-    private void ConnectToServer()
+    private void Update()
     {
-        try
+        if (_isDisconnected)
         {
-            _tcpClient = new TcpClient();
-            _tcpClient.Connect(serverIp, serverPort);
-            _stream = _tcpClient.GetStream();
-            _isRunning = true;
+            _isDisconnected = false;
+            HandleDisconnect();
+        }
+    }
 
-            _receiveThread = new Thread(ReceiveLoop);
-            _receiveThread.IsBackground = true;
-            _receiveThread.Start();
-
-            Debug.Log($"[Network] Connected to Server {serverIp}:{serverPort}");
+    private System.Collections.IEnumerator ConnectAsyncRoutine()
+    {
+        int retryCount = 0;
+        while (!_isRunning)
+        {
+            Debug.Log($"[Network] Connection attempt to {serverIp}:{serverPort} (Try {retryCount + 1})...");
             
-            // 뷰어 모드이므로 일단 더미 계정으로 로그인 요청을 보냅니다 (뷰어용 PlayerID)
-            SendLoginRequest("viewer_01", "Observer");
+            _tcpClient = new TcpClient();
+            System.Threading.Tasks.Task connectTask;
+            try
+            {
+                connectTask = _tcpClient.ConnectAsync(serverIp, serverPort);
+            }
+            catch (Exception ex)
+            {
+                Debug.LogWarning($"[Network] ConnectAsync failed immediately: {ex.Message}");
+                yield return new WaitForSeconds(5f);
+                continue;
+            }
+
+            while (!connectTask.IsCompleted)
+            {
+                yield return null; // Wait for connection without blocking Unity UI
+            }
+
+            if (connectTask.Exception == null && _tcpClient.Connected)
+            {
+                try
+                {
+                    _stream = _tcpClient.GetStream();
+                    _isRunning = true;
+                    _isDisconnected = false;
+
+                    _receiveThread = new Thread(ReceiveLoop);
+                    _receiveThread.IsBackground = true;
+                    _receiveThread.Start();
+
+                    Debug.Log($"[Network] Successfully connected to Server {serverIp}:{serverPort}!");
+                    SendLoginRequest("viewer_01", "Observer");
+                    yield break;
+                }
+                catch (Exception ex)
+                {
+                    Debug.LogError($"[Network] Stream setup error: {ex.Message}");
+                }
+            }
+
+            Debug.LogWarning($"[Network] Connection failed. Retrying in 5 seconds...");
+            _tcpClient.Close();
+            retryCount++;
+            yield return new WaitForSeconds(5f);
         }
-        catch (Exception ex)
-        {
-            Debug.LogError($"[Network] Connection failed: {ex.Message}");
-        }
+    }
+
+    private void HandleDisconnect()
+    {
+        _isRunning = false;
+        if (_stream != null) _stream.Close();
+        if (_tcpClient != null) _tcpClient.Close();
+        
+        // Clear unprocessed packets
+        PacketQueue = new ConcurrentQueue<PacketItem>();
+
+        Debug.LogWarning("[Network] Connection lost. Starting reconnect loop...");
+        StartCoroutine(ConnectAsyncRoutine());
     }
 
     private void ReceiveLoop()
@@ -109,6 +163,7 @@ public class NetworkManager : MonoBehaviour
         }
 
         Debug.Log("[Network] Disconnected from server.");
+        _isDisconnected = true;
     }
 
     private bool ReadExact(NetworkStream stream, byte[] buffer, int length)

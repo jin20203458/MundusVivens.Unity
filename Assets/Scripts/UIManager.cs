@@ -83,10 +83,22 @@ public class UIManager : MonoBehaviour
         npcDetailsPanel.SetActive(true);
         if (npcNameText != null) npcNameText.text = npc.DisplayName;
         
-        // 현재는 클라이언트가 상세 데이터를 들고있지 않으므로 간단한 안내만 표시
-        // 추후 서버로 '상세 정보 조회 패킷'을 요청하여 업데이트하도록 확장할 예정
         if (npcStatusText != null) 
-            npcStatusText.text = $"ID: {npc.NpcId}\n더 상세한 기억 및 관계도는 추후 구현됩니다.";
+        {
+            if (npc.LastSnapshot != null)
+            {
+                var loc = npc.LastSnapshot.Location;
+                npcStatusText.text = $"ID: {npc.NpcId}\n" +
+                                     $"위치: {loc.Name} ({loc.Position.X:F1}, {loc.Position.Y:F1}, {loc.Position.Z:F1})\n" +
+                                     $"감정: {npc.LastSnapshot.Emotion}\n" +
+                                     $"활동: {npc.LastSnapshot.Activity}\n\n" +
+                                     $"<color=silver>* 기억 및 관계도 조회는 추후 구현</color>";
+            }
+            else
+            {
+                npcStatusText.text = $"ID: {npc.NpcId}\n상세 데이터를 불러오는 중입니다...";
+            }
+        }
     }
 
     public void HideNpcDetailsPanel()
