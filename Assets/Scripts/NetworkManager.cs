@@ -63,7 +63,7 @@ public class NetworkManager : MonoBehaviour
             Debug.Log($"[Network] Connection attempt to {serverIp}:{serverPort} (Try {retryCount + 1})...");
             
             _tcpClient = new TcpClient();
-            System.Threading.Tasks.Task connectTask;
+            System.Threading.Tasks.Task connectTask = null;
             bool connectFailed = false;
             try
             {
