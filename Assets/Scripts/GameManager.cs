@@ -62,9 +62,10 @@ public class GameManager : MonoBehaviour
                     tmpro = textGo.AddComponent<TMPro.TextMeshPro>();
                     tmpro.alignment = TMPro.TextAlignmentOptions.Center;
                 }
+                tmpro.transform.localScale = Vector3.one; // 프리팹 스케일 왜곡 방지
                 tmpro.transform.localPosition = new Vector3(0, 0.05f, 0); // 바닥 높이로 조정하여 NPC와 겹치지 않게 함
                 tmpro.text = loc.Name;
-                tmpro.fontSize = 2.0f; // 글씨 크기 최적화 (월드 스페이스 단위 2미터 크기)
+                tmpro.fontSize = 12.0f; // 글씨 크기 확대 (월드 스페이스 단위 12미터 크기)
                 tmpro.color = new Color(0.2f, 0.6f, 1.0f, 0.6f); // 반투명 푸른색으로 깔끔하게 처리
                 tmpro.transform.rotation = Quaternion.Euler(90f, 0, 0); // 완전 탑다운 방향(90도)으로 눕혀서 정면으로 보이게 함
 

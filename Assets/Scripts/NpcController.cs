@@ -38,16 +38,18 @@ public class NpcController : MonoBehaviour
 
         if (nameText != null)
         {
-            nameText.fontSize = 1.2f; // 월드 스페이스 단위 (1.2미터 크기)
+            nameText.transform.localScale = UnityEngine.Vector3.one; // 프리팹 스케일 왜곡 방지
+            nameText.fontSize = 3.5f; // 월드 스페이스 기준 3.5미터 크기로 확대
             nameText.alignment = TMPro.TextAlignmentOptions.Center;
-            nameText.transform.localPosition = new Vector3(0, 3.8f, 0); // Y축 배치 조정
+            nameText.transform.localPosition = new Vector3(0, 6.5f, 0); // Y축 배치 조정
             nameText.transform.rotation = UnityEngine.Quaternion.Euler(90f, 0, 0);
         }
         if (statusText != null)
         {
-            statusText.fontSize = 0.8f; // 월드 스페이스 단위 (0.8미터 크기)
+            statusText.transform.localScale = UnityEngine.Vector3.one; // 프리팹 스케일 왜곡 방지
+            statusText.fontSize = 2.5f; // 월드 스페이스 기준 2.5미터 크기로 확대
             statusText.alignment = TMPro.TextAlignmentOptions.Center;
-            statusText.transform.localPosition = new Vector3(0, 2.8f, 0); // Y축 배치 조정
+            statusText.transform.localPosition = new Vector3(0, 4.0f, 0); // Y축 배치 조정
             statusText.transform.rotation = UnityEngine.Quaternion.Euler(90f, 0, 0);
         }
 
@@ -118,12 +120,12 @@ public class NpcController : MonoBehaviour
         // 새 말풍선 오브젝트 생성 (이름 텍스트보다 살짝 높은 Y=5.5 위치)
         _activeSpeechBubbleGo = new GameObject("SpeechBubbleText");
         _activeSpeechBubbleGo.transform.SetParent(transform, false);
-        _activeSpeechBubbleGo.transform.localPosition = new Vector3(0, 5.2f, 0); 
+        _activeSpeechBubbleGo.transform.localPosition = new Vector3(0, 9.0f, 0); // Y축 배치 위로 올림
         _activeSpeechBubbleGo.transform.rotation = UnityEngine.Quaternion.Euler(90f, 0, 0);
 
         var tmpro = _activeSpeechBubbleGo.AddComponent<TMPro.TextMeshPro>();
         tmpro.alignment = TMPro.TextAlignmentOptions.Center;
-        tmpro.fontSize = 1.0f; // 가독성 최적화 크기
+        tmpro.fontSize = 3.0f; // 월드 스페이스 기준 3.0미터 크기로 확대
         tmpro.color = new Color(1.0f, 0.9f, 0.2f); // 밝은 연노랑색 대사
         tmpro.text = $"💬 \"{text}\"";
 
