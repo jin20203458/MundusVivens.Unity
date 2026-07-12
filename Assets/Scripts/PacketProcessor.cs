@@ -10,7 +10,7 @@ public class PacketProcessor : MonoBehaviour
     private const ushort SC_WORLD_SNAPSHOT  = 0x1002;  // 전체 NPC 상태 브로드캐스트
     private const ushort SC_DIALOGUE_EVENT  = 0x1004;  // NPC간 대화 이벤트 알림
     private const ushort SC_NPC_REPLY       = 0x1005;  // 플레이어에게 NPC 대사 전달
-    private const ushort SC_HEARTBEAT_ACK   = 0x10FF;  // 하트비트 응답
+    private const ushort SC_HEARTBEAT_ACK   = 0x10FF;  // 하트비트 응답 (현재 미사용)
 
     // TODO: [Phase-Avatar] 플레이어 아바타 모드 구현 시 추가 예정
     // CS_PLAYER_ATTACK (0x0006) 수신 처리 → HandlePlayerAttack()
