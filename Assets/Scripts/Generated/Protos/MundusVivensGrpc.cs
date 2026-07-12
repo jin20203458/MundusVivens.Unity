@@ -54,25 +54,13 @@ namespace MundusVivens.Prototype.Protos {
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::MundusVivens.Prototype.Protos.GetAgentStatusResponse> __Marshaller_mundusvivens_GetAgentStatusResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::MundusVivens.Prototype.Protos.GetAgentStatusResponse.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::MundusVivens.Prototype.Protos.InjectGossipRequest> __Marshaller_mundusvivens_InjectGossipRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::MundusVivens.Prototype.Protos.InjectGossipRequest.Parser));
+    static readonly grpc::Marshaller<global::MundusVivens.Prototype.Protos.InjectBeliefRequest> __Marshaller_mundusvivens_InjectBeliefRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::MundusVivens.Prototype.Protos.InjectBeliefRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::MundusVivens.Prototype.Protos.InjectGossipResponse> __Marshaller_mundusvivens_InjectGossipResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::MundusVivens.Prototype.Protos.InjectGossipResponse.Parser));
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::MundusVivens.Prototype.Protos.UpdateAgentStatusRequest> __Marshaller_mundusvivens_UpdateAgentStatusRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::MundusVivens.Prototype.Protos.UpdateAgentStatusRequest.Parser));
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::MundusVivens.Prototype.Protos.UpdateAgentStatusResponse> __Marshaller_mundusvivens_UpdateAgentStatusResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::MundusVivens.Prototype.Protos.UpdateAgentStatusResponse.Parser));
+    static readonly grpc::Marshaller<global::MundusVivens.Prototype.Protos.InjectBeliefResponse> __Marshaller_mundusvivens_InjectBeliefResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::MundusVivens.Prototype.Protos.InjectBeliefResponse.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::MundusVivens.Prototype.Protos.ProcessWorldTickRequest> __Marshaller_mundusvivens_ProcessWorldTickRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::MundusVivens.Prototype.Protos.ProcessWorldTickRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::MundusVivens.Prototype.Protos.ProcessWorldTickResponse> __Marshaller_mundusvivens_ProcessWorldTickResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::MundusVivens.Prototype.Protos.ProcessWorldTickResponse.Parser));
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::MundusVivens.Prototype.Protos.GetDialogueResultRequest> __Marshaller_mundusvivens_GetDialogueResultRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::MundusVivens.Prototype.Protos.GetDialogueResultRequest.Parser));
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::MundusVivens.Prototype.Protos.GetDialogueResultResponse> __Marshaller_mundusvivens_GetDialogueResultResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::MundusVivens.Prototype.Protos.GetDialogueResultResponse.Parser));
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::MundusVivens.Prototype.Protos.SubscribeRequest> __Marshaller_mundusvivens_SubscribeRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::MundusVivens.Prototype.Protos.SubscribeRequest.Parser));
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::MundusVivens.Prototype.Protos.WorldEvent> __Marshaller_mundusvivens_WorldEvent = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::MundusVivens.Prototype.Protos.WorldEvent.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::MundusVivens.Prototype.Protos.StartPlayerDialogueRequest> __Marshaller_mundusvivens_StartPlayerDialogueRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::MundusVivens.Prototype.Protos.StartPlayerDialogueRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
@@ -85,6 +73,30 @@ namespace MundusVivens.Prototype.Protos {
     static readonly grpc::Marshaller<global::MundusVivens.Prototype.Protos.EndPlayerDialogueRequest> __Marshaller_mundusvivens_EndPlayerDialogueRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::MundusVivens.Prototype.Protos.EndPlayerDialogueRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::MundusVivens.Prototype.Protos.EndPlayerDialogueResponse> __Marshaller_mundusvivens_EndPlayerDialogueResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::MundusVivens.Prototype.Protos.EndPlayerDialogueResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::MundusVivens.Prototype.Protos.GetWorldBootstrapRequest> __Marshaller_mundusvivens_GetWorldBootstrapRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::MundusVivens.Prototype.Protos.GetWorldBootstrapRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::MundusVivens.Prototype.Protos.GetWorldBootstrapResponse> __Marshaller_mundusvivens_GetWorldBootstrapResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::MundusVivens.Prototype.Protos.GetWorldBootstrapResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::MundusVivens.Prototype.Protos.BatchUpdateAgentStatusRequest> __Marshaller_mundusvivens_BatchUpdateAgentStatusRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::MundusVivens.Prototype.Protos.BatchUpdateAgentStatusRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::MundusVivens.Prototype.Protos.BatchUpdateAgentStatusResponse> __Marshaller_mundusvivens_BatchUpdateAgentStatusResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::MundusVivens.Prototype.Protos.BatchUpdateAgentStatusResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::MundusVivens.Prototype.Protos.GetPendingJobsRequest> __Marshaller_mundusvivens_GetPendingJobsRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::MundusVivens.Prototype.Protos.GetPendingJobsRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::MundusVivens.Prototype.Protos.GetPendingJobsResponse> __Marshaller_mundusvivens_GetPendingJobsResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::MundusVivens.Prototype.Protos.GetPendingJobsResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::MundusVivens.Prototype.Protos.ReportJobStatusRequest> __Marshaller_mundusvivens_ReportJobStatusRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::MundusVivens.Prototype.Protos.ReportJobStatusRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::MundusVivens.Prototype.Protos.ReportJobStatusResponse> __Marshaller_mundusvivens_ReportJobStatusResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::MundusVivens.Prototype.Protos.ReportJobStatusResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::MundusVivens.Prototype.Protos.ThreatDetectedRequest> __Marshaller_mundusvivens_ThreatDetectedRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::MundusVivens.Prototype.Protos.ThreatDetectedRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::MundusVivens.Prototype.Protos.ThreatDetectedResponse> __Marshaller_mundusvivens_ThreatDetectedResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::MundusVivens.Prototype.Protos.ThreatDetectedResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::MundusVivens.Prototype.Protos.ReportCombatEventRequest> __Marshaller_mundusvivens_ReportCombatEventRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::MundusVivens.Prototype.Protos.ReportCombatEventRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::MundusVivens.Prototype.Protos.ReportCombatEventResponse> __Marshaller_mundusvivens_ReportCombatEventResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::MundusVivens.Prototype.Protos.ReportCombatEventResponse.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::MundusVivens.Prototype.Protos.TriggerDialogueRequest, global::MundusVivens.Prototype.Protos.TriggerDialogueResponse> __Method_TriggerDialogue = new grpc::Method<global::MundusVivens.Prototype.Protos.TriggerDialogueRequest, global::MundusVivens.Prototype.Protos.TriggerDialogueResponse>(
@@ -103,20 +115,12 @@ namespace MundusVivens.Prototype.Protos {
         __Marshaller_mundusvivens_GetAgentStatusResponse);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::MundusVivens.Prototype.Protos.InjectGossipRequest, global::MundusVivens.Prototype.Protos.InjectGossipResponse> __Method_InjectGossip = new grpc::Method<global::MundusVivens.Prototype.Protos.InjectGossipRequest, global::MundusVivens.Prototype.Protos.InjectGossipResponse>(
+    static readonly grpc::Method<global::MundusVivens.Prototype.Protos.InjectBeliefRequest, global::MundusVivens.Prototype.Protos.InjectBeliefResponse> __Method_InjectBelief = new grpc::Method<global::MundusVivens.Prototype.Protos.InjectBeliefRequest, global::MundusVivens.Prototype.Protos.InjectBeliefResponse>(
         grpc::MethodType.Unary,
         __ServiceName,
-        "InjectGossip",
-        __Marshaller_mundusvivens_InjectGossipRequest,
-        __Marshaller_mundusvivens_InjectGossipResponse);
-
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::MundusVivens.Prototype.Protos.UpdateAgentStatusRequest, global::MundusVivens.Prototype.Protos.UpdateAgentStatusResponse> __Method_UpdateAgentStatus = new grpc::Method<global::MundusVivens.Prototype.Protos.UpdateAgentStatusRequest, global::MundusVivens.Prototype.Protos.UpdateAgentStatusResponse>(
-        grpc::MethodType.Unary,
-        __ServiceName,
-        "UpdateAgentStatus",
-        __Marshaller_mundusvivens_UpdateAgentStatusRequest,
-        __Marshaller_mundusvivens_UpdateAgentStatusResponse);
+        "InjectBelief",
+        __Marshaller_mundusvivens_InjectBeliefRequest,
+        __Marshaller_mundusvivens_InjectBeliefResponse);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::MundusVivens.Prototype.Protos.ProcessWorldTickRequest, global::MundusVivens.Prototype.Protos.ProcessWorldTickResponse> __Method_ProcessWorldTick = new grpc::Method<global::MundusVivens.Prototype.Protos.ProcessWorldTickRequest, global::MundusVivens.Prototype.Protos.ProcessWorldTickResponse>(
@@ -125,22 +129,6 @@ namespace MundusVivens.Prototype.Protos {
         "ProcessWorldTick",
         __Marshaller_mundusvivens_ProcessWorldTickRequest,
         __Marshaller_mundusvivens_ProcessWorldTickResponse);
-
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::MundusVivens.Prototype.Protos.GetDialogueResultRequest, global::MundusVivens.Prototype.Protos.GetDialogueResultResponse> __Method_GetDialogueResult = new grpc::Method<global::MundusVivens.Prototype.Protos.GetDialogueResultRequest, global::MundusVivens.Prototype.Protos.GetDialogueResultResponse>(
-        grpc::MethodType.Unary,
-        __ServiceName,
-        "GetDialogueResult",
-        __Marshaller_mundusvivens_GetDialogueResultRequest,
-        __Marshaller_mundusvivens_GetDialogueResultResponse);
-
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::MundusVivens.Prototype.Protos.SubscribeRequest, global::MundusVivens.Prototype.Protos.WorldEvent> __Method_SubscribeWorldEvents = new grpc::Method<global::MundusVivens.Prototype.Protos.SubscribeRequest, global::MundusVivens.Prototype.Protos.WorldEvent>(
-        grpc::MethodType.ServerStreaming,
-        __ServiceName,
-        "SubscribeWorldEvents",
-        __Marshaller_mundusvivens_SubscribeRequest,
-        __Marshaller_mundusvivens_WorldEvent);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::MundusVivens.Prototype.Protos.StartPlayerDialogueRequest, global::MundusVivens.Prototype.Protos.StartPlayerDialogueResponse> __Method_StartPlayerDialogue = new grpc::Method<global::MundusVivens.Prototype.Protos.StartPlayerDialogueRequest, global::MundusVivens.Prototype.Protos.StartPlayerDialogueResponse>(
@@ -166,6 +154,54 @@ namespace MundusVivens.Prototype.Protos {
         __Marshaller_mundusvivens_EndPlayerDialogueRequest,
         __Marshaller_mundusvivens_EndPlayerDialogueResponse);
 
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::MundusVivens.Prototype.Protos.GetWorldBootstrapRequest, global::MundusVivens.Prototype.Protos.GetWorldBootstrapResponse> __Method_GetWorldBootstrap = new grpc::Method<global::MundusVivens.Prototype.Protos.GetWorldBootstrapRequest, global::MundusVivens.Prototype.Protos.GetWorldBootstrapResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "GetWorldBootstrap",
+        __Marshaller_mundusvivens_GetWorldBootstrapRequest,
+        __Marshaller_mundusvivens_GetWorldBootstrapResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::MundusVivens.Prototype.Protos.BatchUpdateAgentStatusRequest, global::MundusVivens.Prototype.Protos.BatchUpdateAgentStatusResponse> __Method_BatchUpdateAgentStatus = new grpc::Method<global::MundusVivens.Prototype.Protos.BatchUpdateAgentStatusRequest, global::MundusVivens.Prototype.Protos.BatchUpdateAgentStatusResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "BatchUpdateAgentStatus",
+        __Marshaller_mundusvivens_BatchUpdateAgentStatusRequest,
+        __Marshaller_mundusvivens_BatchUpdateAgentStatusResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::MundusVivens.Prototype.Protos.GetPendingJobsRequest, global::MundusVivens.Prototype.Protos.GetPendingJobsResponse> __Method_GetPendingJobs = new grpc::Method<global::MundusVivens.Prototype.Protos.GetPendingJobsRequest, global::MundusVivens.Prototype.Protos.GetPendingJobsResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "GetPendingJobs",
+        __Marshaller_mundusvivens_GetPendingJobsRequest,
+        __Marshaller_mundusvivens_GetPendingJobsResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::MundusVivens.Prototype.Protos.ReportJobStatusRequest, global::MundusVivens.Prototype.Protos.ReportJobStatusResponse> __Method_ReportJobStatus = new grpc::Method<global::MundusVivens.Prototype.Protos.ReportJobStatusRequest, global::MundusVivens.Prototype.Protos.ReportJobStatusResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "ReportJobStatus",
+        __Marshaller_mundusvivens_ReportJobStatusRequest,
+        __Marshaller_mundusvivens_ReportJobStatusResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::MundusVivens.Prototype.Protos.ThreatDetectedRequest, global::MundusVivens.Prototype.Protos.ThreatDetectedResponse> __Method_ThreatDetected = new grpc::Method<global::MundusVivens.Prototype.Protos.ThreatDetectedRequest, global::MundusVivens.Prototype.Protos.ThreatDetectedResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "ThreatDetected",
+        __Marshaller_mundusvivens_ThreatDetectedRequest,
+        __Marshaller_mundusvivens_ThreatDetectedResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::MundusVivens.Prototype.Protos.ReportCombatEventRequest, global::MundusVivens.Prototype.Protos.ReportCombatEventResponse> __Method_ReportCombatEvent = new grpc::Method<global::MundusVivens.Prototype.Protos.ReportCombatEventRequest, global::MundusVivens.Prototype.Protos.ReportCombatEventResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "ReportCombatEvent",
+        __Marshaller_mundusvivens_ReportCombatEventRequest,
+        __Marshaller_mundusvivens_ReportCombatEventResponse);
+
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
@@ -182,6 +218,13 @@ namespace MundusVivens.Prototype.Protos {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
+      /// <summary>
+      /// [미래 준비용] 유니티 클라이언트에서 특정 NPC를 클릭하여 기억(Memories) 상세 조회를 수행할 때 사용하기 위한 API.
+      /// 현재는 C# ◄► C++ 구간만 구현되어 있으며, 향후 유니티 ◄► C++ 간의 TCP 브릿지 패킷(예: CS_INSPECT_NPC_MEMORIES) 추가 시 활성화할 예정.
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::System.Threading.Tasks.Task<global::MundusVivens.Prototype.Protos.GetAgentStatusResponse> GetAgentStatus(global::MundusVivens.Prototype.Protos.GetAgentStatusRequest request, grpc::ServerCallContext context)
       {
@@ -189,13 +232,7 @@ namespace MundusVivens.Prototype.Protos {
       }
 
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::MundusVivens.Prototype.Protos.InjectGossipResponse> InjectGossip(global::MundusVivens.Prototype.Protos.InjectGossipRequest request, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::MundusVivens.Prototype.Protos.UpdateAgentStatusResponse> UpdateAgentStatus(global::MundusVivens.Prototype.Protos.UpdateAgentStatusRequest request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::MundusVivens.Prototype.Protos.InjectBeliefResponse> InjectBelief(global::MundusVivens.Prototype.Protos.InjectBeliefRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -207,32 +244,7 @@ namespace MundusVivens.Prototype.Protos {
       }
 
       /// <summary>
-      /// 🆕 비동기 대화 결과 조회 (Phase 4-A 신규)
-      /// </summary>
-      /// <param name="request">The request received from the client.</param>
-      /// <param name="context">The context of the server-side call handler being invoked.</param>
-      /// <returns>The response to send back to the client (wrapped by a task).</returns>
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::MundusVivens.Prototype.Protos.GetDialogueResultResponse> GetDialogueResult(global::MundusVivens.Prototype.Protos.GetDialogueResultRequest request, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
-      /// <summary>
-      /// 🆕 관찰자 모드: 실시간 이벤트 스트림 구독 (Phase 4-B 신규)
-      /// </summary>
-      /// <param name="request">The request received from the client.</param>
-      /// <param name="responseStream">Used for sending responses back to the client.</param>
-      /// <param name="context">The context of the server-side call handler being invoked.</param>
-      /// <returns>A task indicating completion of the handler.</returns>
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task SubscribeWorldEvents(global::MundusVivens.Prototype.Protos.SubscribeRequest request, grpc::IServerStreamWriter<global::MundusVivens.Prototype.Protos.WorldEvent> responseStream, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
-      /// <summary>
-      /// 🆕 참여자 모드: 플레이어-NPC 간 대화 상호작용 (Phase 4-B 신규)
+      /// 참여자 모드: 플레이어-NPC 간 대화 상호작용 
       /// </summary>
       /// <param name="request">The request received from the client.</param>
       /// <param name="context">The context of the server-side call handler being invoked.</param>
@@ -251,6 +263,60 @@ namespace MundusVivens.Prototype.Protos {
 
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::System.Threading.Tasks.Task<global::MundusVivens.Prototype.Protos.EndPlayerDialogueResponse> EndPlayerDialogue(global::MundusVivens.Prototype.Protos.EndPlayerDialogueRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::MundusVivens.Prototype.Protos.GetWorldBootstrapResponse> GetWorldBootstrap(global::MundusVivens.Prototype.Protos.GetWorldBootstrapRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
+      /// 에이전트 상태 배치 업데이트 RPC 
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::MundusVivens.Prototype.Protos.BatchUpdateAgentStatusResponse> BatchUpdateAgentStatus(global::MundusVivens.Prototype.Protos.BatchUpdateAgentStatusRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
+      /// Axis 2: Job 및 Interrupt 관리 RPC
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::MundusVivens.Prototype.Protos.GetPendingJobsResponse> GetPendingJobs(global::MundusVivens.Prototype.Protos.GetPendingJobsRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::MundusVivens.Prototype.Protos.ReportJobStatusResponse> ReportJobStatus(global::MundusVivens.Prototype.Protos.ReportJobStatusRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
+      /// 4단계: 충동-억제 기반 어그로 인지 및 피격 알림 RPC
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::MundusVivens.Prototype.Protos.ThreatDetectedResponse> ThreatDetected(global::MundusVivens.Prototype.Protos.ThreatDetectedRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::MundusVivens.Prototype.Protos.ReportCombatEventResponse> ReportCombatEvent(global::MundusVivens.Prototype.Protos.ReportCombatEventRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -304,65 +370,77 @@ namespace MundusVivens.Prototype.Protos {
       {
         return CallInvoker.AsyncUnaryCall(__Method_TriggerDialogue, null, options, request);
       }
+      /// <summary>
+      /// [미래 준비용] 유니티 클라이언트에서 특정 NPC를 클릭하여 기억(Memories) 상세 조회를 수행할 때 사용하기 위한 API.
+      /// 현재는 C# ◄► C++ 구간만 구현되어 있으며, 향후 유니티 ◄► C++ 간의 TCP 브릿지 패킷(예: CS_INSPECT_NPC_MEMORIES) 추가 시 활성화할 예정.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::MundusVivens.Prototype.Protos.GetAgentStatusResponse GetAgentStatus(global::MundusVivens.Prototype.Protos.GetAgentStatusRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return GetAgentStatus(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
+      /// <summary>
+      /// [미래 준비용] 유니티 클라이언트에서 특정 NPC를 클릭하여 기억(Memories) 상세 조회를 수행할 때 사용하기 위한 API.
+      /// 현재는 C# ◄► C++ 구간만 구현되어 있으며, 향후 유니티 ◄► C++ 간의 TCP 브릿지 패킷(예: CS_INSPECT_NPC_MEMORIES) 추가 시 활성화할 예정.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::MundusVivens.Prototype.Protos.GetAgentStatusResponse GetAgentStatus(global::MundusVivens.Prototype.Protos.GetAgentStatusRequest request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_GetAgentStatus, null, options, request);
       }
+      /// <summary>
+      /// [미래 준비용] 유니티 클라이언트에서 특정 NPC를 클릭하여 기억(Memories) 상세 조회를 수행할 때 사용하기 위한 API.
+      /// 현재는 C# ◄► C++ 구간만 구현되어 있으며, 향후 유니티 ◄► C++ 간의 TCP 브릿지 패킷(예: CS_INSPECT_NPC_MEMORIES) 추가 시 활성화할 예정.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual grpc::AsyncUnaryCall<global::MundusVivens.Prototype.Protos.GetAgentStatusResponse> GetAgentStatusAsync(global::MundusVivens.Prototype.Protos.GetAgentStatusRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return GetAgentStatusAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
+      /// <summary>
+      /// [미래 준비용] 유니티 클라이언트에서 특정 NPC를 클릭하여 기억(Memories) 상세 조회를 수행할 때 사용하기 위한 API.
+      /// 현재는 C# ◄► C++ 구간만 구현되어 있으며, 향후 유니티 ◄► C++ 간의 TCP 브릿지 패킷(예: CS_INSPECT_NPC_MEMORIES) 추가 시 활성화할 예정.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual grpc::AsyncUnaryCall<global::MundusVivens.Prototype.Protos.GetAgentStatusResponse> GetAgentStatusAsync(global::MundusVivens.Prototype.Protos.GetAgentStatusRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_GetAgentStatus, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::MundusVivens.Prototype.Protos.InjectGossipResponse InjectGossip(global::MundusVivens.Prototype.Protos.InjectGossipRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::MundusVivens.Prototype.Protos.InjectBeliefResponse InjectBelief(global::MundusVivens.Prototype.Protos.InjectBeliefRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
-        return InjectGossip(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+        return InjectBelief(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::MundusVivens.Prototype.Protos.InjectGossipResponse InjectGossip(global::MundusVivens.Prototype.Protos.InjectGossipRequest request, grpc::CallOptions options)
+      public virtual global::MundusVivens.Prototype.Protos.InjectBeliefResponse InjectBelief(global::MundusVivens.Prototype.Protos.InjectBeliefRequest request, grpc::CallOptions options)
       {
-        return CallInvoker.BlockingUnaryCall(__Method_InjectGossip, null, options, request);
+        return CallInvoker.BlockingUnaryCall(__Method_InjectBelief, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::MundusVivens.Prototype.Protos.InjectGossipResponse> InjectGossipAsync(global::MundusVivens.Prototype.Protos.InjectGossipRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::MundusVivens.Prototype.Protos.InjectBeliefResponse> InjectBeliefAsync(global::MundusVivens.Prototype.Protos.InjectBeliefRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
-        return InjectGossipAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+        return InjectBeliefAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::MundusVivens.Prototype.Protos.InjectGossipResponse> InjectGossipAsync(global::MundusVivens.Prototype.Protos.InjectGossipRequest request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::MundusVivens.Prototype.Protos.InjectBeliefResponse> InjectBeliefAsync(global::MundusVivens.Prototype.Protos.InjectBeliefRequest request, grpc::CallOptions options)
       {
-        return CallInvoker.AsyncUnaryCall(__Method_InjectGossip, null, options, request);
-      }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::MundusVivens.Prototype.Protos.UpdateAgentStatusResponse UpdateAgentStatus(global::MundusVivens.Prototype.Protos.UpdateAgentStatusRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return UpdateAgentStatus(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::MundusVivens.Prototype.Protos.UpdateAgentStatusResponse UpdateAgentStatus(global::MundusVivens.Prototype.Protos.UpdateAgentStatusRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_UpdateAgentStatus, null, options, request);
-      }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::MundusVivens.Prototype.Protos.UpdateAgentStatusResponse> UpdateAgentStatusAsync(global::MundusVivens.Prototype.Protos.UpdateAgentStatusRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return UpdateAgentStatusAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::MundusVivens.Prototype.Protos.UpdateAgentStatusResponse> UpdateAgentStatusAsync(global::MundusVivens.Prototype.Protos.UpdateAgentStatusRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_UpdateAgentStatus, null, options, request);
+        return CallInvoker.AsyncUnaryCall(__Method_InjectBelief, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::MundusVivens.Prototype.Protos.ProcessWorldTickResponse ProcessWorldTick(global::MundusVivens.Prototype.Protos.ProcessWorldTickRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
@@ -385,79 +463,7 @@ namespace MundusVivens.Prototype.Protos {
         return CallInvoker.AsyncUnaryCall(__Method_ProcessWorldTick, null, options, request);
       }
       /// <summary>
-      /// 🆕 비동기 대화 결과 조회 (Phase 4-A 신규)
-      /// </summary>
-      /// <param name="request">The request to send to the server.</param>
-      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
-      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
-      /// <param name="cancellationToken">An optional token for canceling the call.</param>
-      /// <returns>The response received from the server.</returns>
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::MundusVivens.Prototype.Protos.GetDialogueResultResponse GetDialogueResult(global::MundusVivens.Prototype.Protos.GetDialogueResultRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return GetDialogueResult(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      /// <summary>
-      /// 🆕 비동기 대화 결과 조회 (Phase 4-A 신규)
-      /// </summary>
-      /// <param name="request">The request to send to the server.</param>
-      /// <param name="options">The options for the call.</param>
-      /// <returns>The response received from the server.</returns>
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::MundusVivens.Prototype.Protos.GetDialogueResultResponse GetDialogueResult(global::MundusVivens.Prototype.Protos.GetDialogueResultRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_GetDialogueResult, null, options, request);
-      }
-      /// <summary>
-      /// 🆕 비동기 대화 결과 조회 (Phase 4-A 신규)
-      /// </summary>
-      /// <param name="request">The request to send to the server.</param>
-      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
-      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
-      /// <param name="cancellationToken">An optional token for canceling the call.</param>
-      /// <returns>The call object.</returns>
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::MundusVivens.Prototype.Protos.GetDialogueResultResponse> GetDialogueResultAsync(global::MundusVivens.Prototype.Protos.GetDialogueResultRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return GetDialogueResultAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      /// <summary>
-      /// 🆕 비동기 대화 결과 조회 (Phase 4-A 신규)
-      /// </summary>
-      /// <param name="request">The request to send to the server.</param>
-      /// <param name="options">The options for the call.</param>
-      /// <returns>The call object.</returns>
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::MundusVivens.Prototype.Protos.GetDialogueResultResponse> GetDialogueResultAsync(global::MundusVivens.Prototype.Protos.GetDialogueResultRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_GetDialogueResult, null, options, request);
-      }
-      /// <summary>
-      /// 🆕 관찰자 모드: 실시간 이벤트 스트림 구독 (Phase 4-B 신규)
-      /// </summary>
-      /// <param name="request">The request to send to the server.</param>
-      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
-      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
-      /// <param name="cancellationToken">An optional token for canceling the call.</param>
-      /// <returns>The call object.</returns>
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncServerStreamingCall<global::MundusVivens.Prototype.Protos.WorldEvent> SubscribeWorldEvents(global::MundusVivens.Prototype.Protos.SubscribeRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return SubscribeWorldEvents(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      /// <summary>
-      /// 🆕 관찰자 모드: 실시간 이벤트 스트림 구독 (Phase 4-B 신규)
-      /// </summary>
-      /// <param name="request">The request to send to the server.</param>
-      /// <param name="options">The options for the call.</param>
-      /// <returns>The call object.</returns>
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncServerStreamingCall<global::MundusVivens.Prototype.Protos.WorldEvent> SubscribeWorldEvents(global::MundusVivens.Prototype.Protos.SubscribeRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncServerStreamingCall(__Method_SubscribeWorldEvents, null, options, request);
-      }
-      /// <summary>
-      /// 🆕 참여자 모드: 플레이어-NPC 간 대화 상호작용 (Phase 4-B 신규)
+      /// 참여자 모드: 플레이어-NPC 간 대화 상호작용 
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
@@ -470,7 +476,7 @@ namespace MundusVivens.Prototype.Protos {
         return StartPlayerDialogue(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       /// <summary>
-      /// 🆕 참여자 모드: 플레이어-NPC 간 대화 상호작용 (Phase 4-B 신규)
+      /// 참여자 모드: 플레이어-NPC 간 대화 상호작용 
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
@@ -481,7 +487,7 @@ namespace MundusVivens.Prototype.Protos {
         return CallInvoker.BlockingUnaryCall(__Method_StartPlayerDialogue, null, options, request);
       }
       /// <summary>
-      /// 🆕 참여자 모드: 플레이어-NPC 간 대화 상호작용 (Phase 4-B 신규)
+      /// 참여자 모드: 플레이어-NPC 간 대화 상호작용 
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
@@ -494,7 +500,7 @@ namespace MundusVivens.Prototype.Protos {
         return StartPlayerDialogueAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       /// <summary>
-      /// 🆕 참여자 모드: 플레이어-NPC 간 대화 상호작용 (Phase 4-B 신규)
+      /// 참여자 모드: 플레이어-NPC 간 대화 상호작용 
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
@@ -544,6 +550,210 @@ namespace MundusVivens.Prototype.Protos {
       {
         return CallInvoker.AsyncUnaryCall(__Method_EndPlayerDialogue, null, options, request);
       }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::MundusVivens.Prototype.Protos.GetWorldBootstrapResponse GetWorldBootstrap(global::MundusVivens.Prototype.Protos.GetWorldBootstrapRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetWorldBootstrap(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::MundusVivens.Prototype.Protos.GetWorldBootstrapResponse GetWorldBootstrap(global::MundusVivens.Prototype.Protos.GetWorldBootstrapRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_GetWorldBootstrap, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::MundusVivens.Prototype.Protos.GetWorldBootstrapResponse> GetWorldBootstrapAsync(global::MundusVivens.Prototype.Protos.GetWorldBootstrapRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetWorldBootstrapAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::MundusVivens.Prototype.Protos.GetWorldBootstrapResponse> GetWorldBootstrapAsync(global::MundusVivens.Prototype.Protos.GetWorldBootstrapRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_GetWorldBootstrap, null, options, request);
+      }
+      /// <summary>
+      /// 에이전트 상태 배치 업데이트 RPC 
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::MundusVivens.Prototype.Protos.BatchUpdateAgentStatusResponse BatchUpdateAgentStatus(global::MundusVivens.Prototype.Protos.BatchUpdateAgentStatusRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return BatchUpdateAgentStatus(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// 에이전트 상태 배치 업데이트 RPC 
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::MundusVivens.Prototype.Protos.BatchUpdateAgentStatusResponse BatchUpdateAgentStatus(global::MundusVivens.Prototype.Protos.BatchUpdateAgentStatusRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_BatchUpdateAgentStatus, null, options, request);
+      }
+      /// <summary>
+      /// 에이전트 상태 배치 업데이트 RPC 
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::MundusVivens.Prototype.Protos.BatchUpdateAgentStatusResponse> BatchUpdateAgentStatusAsync(global::MundusVivens.Prototype.Protos.BatchUpdateAgentStatusRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return BatchUpdateAgentStatusAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// 에이전트 상태 배치 업데이트 RPC 
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::MundusVivens.Prototype.Protos.BatchUpdateAgentStatusResponse> BatchUpdateAgentStatusAsync(global::MundusVivens.Prototype.Protos.BatchUpdateAgentStatusRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_BatchUpdateAgentStatus, null, options, request);
+      }
+      /// <summary>
+      /// Axis 2: Job 및 Interrupt 관리 RPC
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::MundusVivens.Prototype.Protos.GetPendingJobsResponse GetPendingJobs(global::MundusVivens.Prototype.Protos.GetPendingJobsRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetPendingJobs(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// Axis 2: Job 및 Interrupt 관리 RPC
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::MundusVivens.Prototype.Protos.GetPendingJobsResponse GetPendingJobs(global::MundusVivens.Prototype.Protos.GetPendingJobsRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_GetPendingJobs, null, options, request);
+      }
+      /// <summary>
+      /// Axis 2: Job 및 Interrupt 관리 RPC
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::MundusVivens.Prototype.Protos.GetPendingJobsResponse> GetPendingJobsAsync(global::MundusVivens.Prototype.Protos.GetPendingJobsRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetPendingJobsAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// Axis 2: Job 및 Interrupt 관리 RPC
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::MundusVivens.Prototype.Protos.GetPendingJobsResponse> GetPendingJobsAsync(global::MundusVivens.Prototype.Protos.GetPendingJobsRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_GetPendingJobs, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::MundusVivens.Prototype.Protos.ReportJobStatusResponse ReportJobStatus(global::MundusVivens.Prototype.Protos.ReportJobStatusRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return ReportJobStatus(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::MundusVivens.Prototype.Protos.ReportJobStatusResponse ReportJobStatus(global::MundusVivens.Prototype.Protos.ReportJobStatusRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_ReportJobStatus, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::MundusVivens.Prototype.Protos.ReportJobStatusResponse> ReportJobStatusAsync(global::MundusVivens.Prototype.Protos.ReportJobStatusRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return ReportJobStatusAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::MundusVivens.Prototype.Protos.ReportJobStatusResponse> ReportJobStatusAsync(global::MundusVivens.Prototype.Protos.ReportJobStatusRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_ReportJobStatus, null, options, request);
+      }
+      /// <summary>
+      /// 4단계: 충동-억제 기반 어그로 인지 및 피격 알림 RPC
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::MundusVivens.Prototype.Protos.ThreatDetectedResponse ThreatDetected(global::MundusVivens.Prototype.Protos.ThreatDetectedRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return ThreatDetected(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// 4단계: 충동-억제 기반 어그로 인지 및 피격 알림 RPC
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::MundusVivens.Prototype.Protos.ThreatDetectedResponse ThreatDetected(global::MundusVivens.Prototype.Protos.ThreatDetectedRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_ThreatDetected, null, options, request);
+      }
+      /// <summary>
+      /// 4단계: 충동-억제 기반 어그로 인지 및 피격 알림 RPC
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::MundusVivens.Prototype.Protos.ThreatDetectedResponse> ThreatDetectedAsync(global::MundusVivens.Prototype.Protos.ThreatDetectedRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return ThreatDetectedAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// 4단계: 충동-억제 기반 어그로 인지 및 피격 알림 RPC
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::MundusVivens.Prototype.Protos.ThreatDetectedResponse> ThreatDetectedAsync(global::MundusVivens.Prototype.Protos.ThreatDetectedRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_ThreatDetected, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::MundusVivens.Prototype.Protos.ReportCombatEventResponse ReportCombatEvent(global::MundusVivens.Prototype.Protos.ReportCombatEventRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return ReportCombatEvent(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::MundusVivens.Prototype.Protos.ReportCombatEventResponse ReportCombatEvent(global::MundusVivens.Prototype.Protos.ReportCombatEventRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_ReportCombatEvent, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::MundusVivens.Prototype.Protos.ReportCombatEventResponse> ReportCombatEventAsync(global::MundusVivens.Prototype.Protos.ReportCombatEventRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return ReportCombatEventAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::MundusVivens.Prototype.Protos.ReportCombatEventResponse> ReportCombatEventAsync(global::MundusVivens.Prototype.Protos.ReportCombatEventRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_ReportCombatEvent, null, options, request);
+      }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       protected override MundusVivensGrpcClient NewInstance(ClientBaseConfiguration configuration)
@@ -560,14 +770,17 @@ namespace MundusVivens.Prototype.Protos {
       return grpc::ServerServiceDefinition.CreateBuilder()
           .AddMethod(__Method_TriggerDialogue, serviceImpl.TriggerDialogue)
           .AddMethod(__Method_GetAgentStatus, serviceImpl.GetAgentStatus)
-          .AddMethod(__Method_InjectGossip, serviceImpl.InjectGossip)
-          .AddMethod(__Method_UpdateAgentStatus, serviceImpl.UpdateAgentStatus)
+          .AddMethod(__Method_InjectBelief, serviceImpl.InjectBelief)
           .AddMethod(__Method_ProcessWorldTick, serviceImpl.ProcessWorldTick)
-          .AddMethod(__Method_GetDialogueResult, serviceImpl.GetDialogueResult)
-          .AddMethod(__Method_SubscribeWorldEvents, serviceImpl.SubscribeWorldEvents)
           .AddMethod(__Method_StartPlayerDialogue, serviceImpl.StartPlayerDialogue)
           .AddMethod(__Method_SendPlayerMessage, serviceImpl.SendPlayerMessage)
-          .AddMethod(__Method_EndPlayerDialogue, serviceImpl.EndPlayerDialogue).Build();
+          .AddMethod(__Method_EndPlayerDialogue, serviceImpl.EndPlayerDialogue)
+          .AddMethod(__Method_GetWorldBootstrap, serviceImpl.GetWorldBootstrap)
+          .AddMethod(__Method_BatchUpdateAgentStatus, serviceImpl.BatchUpdateAgentStatus)
+          .AddMethod(__Method_GetPendingJobs, serviceImpl.GetPendingJobs)
+          .AddMethod(__Method_ReportJobStatus, serviceImpl.ReportJobStatus)
+          .AddMethod(__Method_ThreatDetected, serviceImpl.ThreatDetected)
+          .AddMethod(__Method_ReportCombatEvent, serviceImpl.ReportCombatEvent).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the service binding logic.
@@ -579,14 +792,17 @@ namespace MundusVivens.Prototype.Protos {
     {
       serviceBinder.AddMethod(__Method_TriggerDialogue, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::MundusVivens.Prototype.Protos.TriggerDialogueRequest, global::MundusVivens.Prototype.Protos.TriggerDialogueResponse>(serviceImpl.TriggerDialogue));
       serviceBinder.AddMethod(__Method_GetAgentStatus, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::MundusVivens.Prototype.Protos.GetAgentStatusRequest, global::MundusVivens.Prototype.Protos.GetAgentStatusResponse>(serviceImpl.GetAgentStatus));
-      serviceBinder.AddMethod(__Method_InjectGossip, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::MundusVivens.Prototype.Protos.InjectGossipRequest, global::MundusVivens.Prototype.Protos.InjectGossipResponse>(serviceImpl.InjectGossip));
-      serviceBinder.AddMethod(__Method_UpdateAgentStatus, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::MundusVivens.Prototype.Protos.UpdateAgentStatusRequest, global::MundusVivens.Prototype.Protos.UpdateAgentStatusResponse>(serviceImpl.UpdateAgentStatus));
+      serviceBinder.AddMethod(__Method_InjectBelief, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::MundusVivens.Prototype.Protos.InjectBeliefRequest, global::MundusVivens.Prototype.Protos.InjectBeliefResponse>(serviceImpl.InjectBelief));
       serviceBinder.AddMethod(__Method_ProcessWorldTick, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::MundusVivens.Prototype.Protos.ProcessWorldTickRequest, global::MundusVivens.Prototype.Protos.ProcessWorldTickResponse>(serviceImpl.ProcessWorldTick));
-      serviceBinder.AddMethod(__Method_GetDialogueResult, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::MundusVivens.Prototype.Protos.GetDialogueResultRequest, global::MundusVivens.Prototype.Protos.GetDialogueResultResponse>(serviceImpl.GetDialogueResult));
-      serviceBinder.AddMethod(__Method_SubscribeWorldEvents, serviceImpl == null ? null : new grpc::ServerStreamingServerMethod<global::MundusVivens.Prototype.Protos.SubscribeRequest, global::MundusVivens.Prototype.Protos.WorldEvent>(serviceImpl.SubscribeWorldEvents));
       serviceBinder.AddMethod(__Method_StartPlayerDialogue, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::MundusVivens.Prototype.Protos.StartPlayerDialogueRequest, global::MundusVivens.Prototype.Protos.StartPlayerDialogueResponse>(serviceImpl.StartPlayerDialogue));
       serviceBinder.AddMethod(__Method_SendPlayerMessage, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::MundusVivens.Prototype.Protos.SendPlayerMessageRequest, global::MundusVivens.Prototype.Protos.SendPlayerMessageResponse>(serviceImpl.SendPlayerMessage));
       serviceBinder.AddMethod(__Method_EndPlayerDialogue, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::MundusVivens.Prototype.Protos.EndPlayerDialogueRequest, global::MundusVivens.Prototype.Protos.EndPlayerDialogueResponse>(serviceImpl.EndPlayerDialogue));
+      serviceBinder.AddMethod(__Method_GetWorldBootstrap, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::MundusVivens.Prototype.Protos.GetWorldBootstrapRequest, global::MundusVivens.Prototype.Protos.GetWorldBootstrapResponse>(serviceImpl.GetWorldBootstrap));
+      serviceBinder.AddMethod(__Method_BatchUpdateAgentStatus, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::MundusVivens.Prototype.Protos.BatchUpdateAgentStatusRequest, global::MundusVivens.Prototype.Protos.BatchUpdateAgentStatusResponse>(serviceImpl.BatchUpdateAgentStatus));
+      serviceBinder.AddMethod(__Method_GetPendingJobs, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::MundusVivens.Prototype.Protos.GetPendingJobsRequest, global::MundusVivens.Prototype.Protos.GetPendingJobsResponse>(serviceImpl.GetPendingJobs));
+      serviceBinder.AddMethod(__Method_ReportJobStatus, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::MundusVivens.Prototype.Protos.ReportJobStatusRequest, global::MundusVivens.Prototype.Protos.ReportJobStatusResponse>(serviceImpl.ReportJobStatus));
+      serviceBinder.AddMethod(__Method_ThreatDetected, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::MundusVivens.Prototype.Protos.ThreatDetectedRequest, global::MundusVivens.Prototype.Protos.ThreatDetectedResponse>(serviceImpl.ThreatDetected));
+      serviceBinder.AddMethod(__Method_ReportCombatEvent, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::MundusVivens.Prototype.Protos.ReportCombatEventRequest, global::MundusVivens.Prototype.Protos.ReportCombatEventResponse>(serviceImpl.ReportCombatEvent));
     }
 
   }

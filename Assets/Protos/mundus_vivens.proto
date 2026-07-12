@@ -4,167 +4,142 @@ option csharp_namespace = "MundusVivens.Prototype.Protos";
 
 package mundusvivens;
 
+message Vector3 {
+  float x = 1;
+  float y = 2;
+  float z = 3;
+}
+
+message LocationInfo {
+  string name = 1;
+  Vector3 position = 2;
+  ProtoLocationType type = 3;
+  uint32 region_id = 4;
+  uint32 territory_id = 5;
+}
+
 service MundusVivensGrpc {
   rpc TriggerDialogue (TriggerDialogueRequest) returns (TriggerDialogueResponse);
+  // [미래 준비용] 유니티 클라이언트에서 특정 NPC를 클릭하여 기억(Memories) 상세 조회를 수행할 때 사용하기 위한 API.
+  // 현재는 C# ◄► C++ 구간만 구현되어 있으며, 향후 유니티 ◄► C++ 간의 TCP 브릿지 패킷(예: CS_INSPECT_NPC_MEMORIES) 추가 시 활성화할 예정.
   rpc GetAgentStatus (GetAgentStatusRequest) returns (GetAgentStatusResponse);
-  rpc InjectGossip (InjectGossipRequest) returns (InjectGossipResponse);
-  rpc UpdateAgentStatus (UpdateAgentStatusRequest) returns (UpdateAgentStatusResponse);
+  rpc InjectBelief (InjectBeliefRequest) returns (InjectBeliefResponse);
   rpc ProcessWorldTick (ProcessWorldTickRequest) returns (ProcessWorldTickResponse);
 
-  // 🆕 비동기 대화 결과 조회 (Phase 4-A 신규)
-  rpc GetDialogueResult (GetDialogueResultRequest) returns (GetDialogueResultResponse);
-
-  // 🆕 관찰자 모드: 실시간 이벤트 스트림 구독 (Phase 4-B 신규)
-  rpc SubscribeWorldEvents (SubscribeRequest) returns (stream WorldEvent);
-
-  // 🆕 참여자 모드: 플레이어-NPC 간 대화 상호작용 (Phase 4-B 신규)
+  // 참여자 모드: 플레이어-NPC 간 대화 상호작용 
   rpc StartPlayerDialogue (StartPlayerDialogueRequest) returns (StartPlayerDialogueResponse);
+
   rpc SendPlayerMessage (SendPlayerMessageRequest) returns (SendPlayerMessageResponse);
   rpc EndPlayerDialogue (EndPlayerDialogueRequest) returns (EndPlayerDialogueResponse);
+  rpc GetWorldBootstrap (GetWorldBootstrapRequest) returns (GetWorldBootstrapResponse);
+
+  // 에이전트 상태 배치 업데이트 RPC 
+  rpc BatchUpdateAgentStatus (BatchUpdateAgentStatusRequest) returns (BatchUpdateAgentStatusResponse);
+
+  // Axis 2: Job 및 Interrupt 관리 RPC
+  rpc GetPendingJobs (GetPendingJobsRequest) returns (GetPendingJobsResponse);
+  rpc ReportJobStatus (ReportJobStatusRequest) returns (ReportJobStatusResponse);
+
+  // 4단계: 충동-억제 기반 어그로 인지 및 피격 알림 RPC
+  rpc ThreatDetected (ThreatDetectedRequest) returns (ThreatDetectedResponse);
+  rpc ReportCombatEvent (ReportCombatEventRequest) returns (ReportCombatEventResponse);
 }
 
 message TriggerDialogueRequest {
-  string agent_id_a = 1;
-  string agent_id_b = 2;
-  bool wait_for_completion = 3;
+  uint32 agent_id_a = 1;
+  uint32 agent_id_b = 2;
+  repeated uint32 participant_ids = 4;
 }
 
 message TriggerDialogueResponse {
-  string task_id = 1;
-  bool is_queued = 2;
-  bool completed_immediately = 3;
+  uint64 task_id = 1;
   string dialogue_summary = 4;
-  repeated string dialogue_lines = 5;
-  repeated DialogueLine structured_lines = 6; // 🆕 구조화된 대사 데이터 (하위호환 유지하며 추가)
+  repeated DialogueLine structured_lines = 6; // 구조화된 대사 데이터 
+  repeated AgentEmotionUpdate emotion_updates = 7; 
+  repeated JobPayload next_jobs = 8; 
+  repeated string keywords = 9;               // 대화 키워드 추가
+  bool success = 10;                          // 🆕 대화 성공 여부
+  string error_message = 11;                  // 🆕 에러 메시지
 }
 
 message GetAgentStatusRequest {
-  string agent_id = 1;
+  uint32 agent_id = 1;
 }
 
 message GetAgentStatusResponse {
   string name = 1;
-  string location = 2;
+  LocationInfo location = 2;
   string emotion = 3;
   string activity = 4;
   repeated string memories = 5;
 }
 
-message InjectGossipRequest {
-  string subject_id = 1;
-  string content = 2;
-  string target_agent_id = 3;
+enum ProtoBeliefType {
+  BELIEF_TYPE_UNSPECIFIED = 0;
+  BELIEF_TYPE_CORE = 1;
+  BELIEF_TYPE_WITNESSED = 2;
+  BELIEF_TYPE_HEARD = 3;
+  BELIEF_TYPE_OVERHEARD = 4;
 }
 
-message InjectGossipResponse {
+message InjectBeliefRequest {
+  uint32 target_agent_id = 1;
+  uint32 subject_id = 2;
+  string content = 3;
+  ProtoBeliefType belief_type = 4;
+  uint32 source_agent_id = 5; // 소문의 출처 에이전트 ID 추가
+}
+
+message InjectBeliefResponse {
   bool success = 1;
   string message = 2;
 }
 
 message UpdateAgentStatusRequest {
-  string agent_id = 1;
-  string location = 2;
+  uint32 agent_id = 1;
+  LocationInfo location = 2;
   string emotion = 3;
   string activity = 4;
-}
-
-message UpdateAgentStatusResponse {
-  bool success = 1;
-  string message = 2;
 }
 
 message ProcessWorldTickRequest {
   int32 tick_number = 1;
 }
 
+message RelationshipDelta {
+  uint32 from_agent_id = 1;
+  uint32 to_agent_id = 2;
+  int32 liking = 3;
+  int32 trust = 4;
+}
+
 message ProcessWorldTickResponse {
   bool success = 1;
   string message = 2;
+  repeated uint32 busy_agent_ids = 3;
+  repeated RelationshipDelta relationship_deltas = 4;
 }
 
 message DialogueLine {
-  string speaker_id = 1;     // 화자 에이전트 ID (예: "npc_eva")
+  uint32 speaker_id = 1;     // 화자 에이전트 ID (예: "npc_eva")
   string speaker_name = 2;   // 화자 표시 이름 (예: "에바")
   string text = 3;           // 대사 내용
 }
 
-message GetDialogueResultRequest {
-  string task_id = 1;
-}
-
-message GetDialogueResultResponse {
-  string task_id = 1;
-  bool is_completed = 2;        // 아직 진행 중이면 false
-  string dialogue_summary = 3;
-  repeated DialogueLine lines = 4;  // 구조화된 대사
-}
-
-message SubscribeRequest {
-  string subscriber_id = 1;
-}
-
-message WorldEvent {
-  int64 timestamp = 1;
-  oneof event {
-    DialogueEvent dialogue = 2;       // 대화 시작/진행/종료
-    MovementEvent movement = 3;       // NPC 이동
-    GossipEvent gossip = 4;           // 소문 전파 발생
-    RelationshipEvent relationship = 5; // 관계도 변화
-    TickEvent tick = 6;               // 틱 진행
-  }
-}
-
-message DialogueEvent {
-  string task_id = 1;
-  string agent_a_id = 2;
-  string agent_b_id = 3;
-  string location = 4;
-  repeated DialogueLine lines = 5;    // 대화 완료 시 채워짐
-  string summary = 6;
-  bool is_started = 7;               // true=시작, false=완료
-}
-
-message MovementEvent {
-  string agent_id = 1;
-  string from_location = 2;
-  string to_location = 3;
-}
-
-message GossipEvent {
-  string speaker_id = 1;
-  string listener_id = 2;
-  string subject_id = 3;
-  string gossip_content = 4;
-  bool is_mutated = 5;               // 와전 여부
-}
-
-message RelationshipEvent {
-  string from_agent_id = 1;
-  string to_agent_id = 2;
-  int32 new_affinity = 3;
-  int32 affinity_delta = 4;
-  int32 new_trust = 5;
-  int32 trust_delta = 6;
-}
-
-message TickEvent {
-  int32 tick_number = 1;
-}
-
 message StartPlayerDialogueRequest {
   string player_id = 1;
-  string npc_id = 2;
+  uint32 npc_id = 2;
 }
 
 message StartPlayerDialogueResponse {
-  string session_id = 1;
+  uint64 session_id = 1;
   string greeting = 2;
   bool success = 3;
   string message = 4;
 }
 
 message SendPlayerMessageRequest {
-  string session_id = 1;
+  uint64 session_id = 1;
   string message = 2;
 }
 
@@ -173,10 +148,263 @@ message SendPlayerMessageResponse {
 }
 
 message EndPlayerDialogueRequest {
-  string session_id = 1;
+  uint64 session_id = 1;
 }
 
 message EndPlayerDialogueResponse {
   bool success = 1;
   string summary = 2;
+}
+
+message GetWorldBootstrapRequest { }
+
+message RelationshipSnapshot {
+  uint32 target_agent_id = 1;
+  int32 liking = 2;
+  int32 trust = 3;
+}
+
+message InitialAgentState {
+  uint32 agent_id = 1;
+  string name = 2;
+  LocationInfo location = 3;
+  string emotion = 4;
+  string activity = 5;
+  float extroversion = 6;
+  repeated RelationshipSnapshot relationships = 7;
+  string string_id = 8;
+}
+
+message FurnitureInfo {
+  string name = 1;
+  ProtoAffordanceType type = 2;
+  string parent_location = 3;
+  Vector3 position = 4;
+  bool is_temporary = 5;
+}
+
+message GetWorldBootstrapResponse {
+  repeated LocationInfo locations = 1;
+  repeated InitialAgentState agents = 2;
+  repeated FurnitureInfo furniture = 3;
+  float npc_speed = 4;
+  uint32 ticks_per_game_hour = 5;
+}
+
+enum ProtoLocationType {
+  LOCATION_TYPE_UNSPECIFIED = 0;
+  LOCATION_TYPE_TAVERN = 1;
+  LOCATION_TYPE_MARKET = 2;
+  LOCATION_TYPE_SQUARE = 3;
+  LOCATION_TYPE_CHURCH = 4;
+  LOCATION_TYPE_WILDERNESS = 5;
+  LOCATION_TYPE_RESIDENTIAL = 6;
+  LOCATION_TYPE_FORGE = 7;
+  LOCATION_TYPE_MANOR = 8;
+  LOCATION_TYPE_COUNTRY = 9;
+  LOCATION_TYPE_CITY = 10;
+  LOCATION_TYPE_PLACE = 11;
+}
+
+enum ProtoEmotionCategory {
+  EMOTION_CATEGORY_UNSPECIFIED = 0;
+  EMOTION_CATEGORY_NEUTRAL = 1;
+  EMOTION_CATEGORY_ANGER = 2;
+  EMOTION_CATEGORY_HOSTILITY = 3;
+  EMOTION_CATEGORY_FEAR = 4;
+}
+
+enum ProtoJobCategory {
+  JOB_CATEGORY_UNSPECIFIED = 0;
+  JOB_CATEGORY_SLEEP = 1;
+  JOB_CATEGORY_EAT = 2;
+  JOB_CATEGORY_SOCIAL = 3;
+  JOB_CATEGORY_WORK = 4;
+  JOB_CATEGORY_TRAVEL = 5;
+  JOB_CATEGORY_SURVIVAL = 6;
+  JOB_CATEGORY_COMBAT = 7;
+}
+
+enum ProtoAffordanceType {
+  AFFORDANCE_UNSPECIFIED = 0;
+  AFFORDANCE_SIT = 1;
+  AFFORDANCE_SLEEP = 2;
+  AFFORDANCE_EAT = 3;
+  AFFORDANCE_DRINK = 4;
+  AFFORDANCE_PRAY = 5;
+}
+
+enum EmotionIntensity {
+  EMOTION_INTENSITY_UNSPECIFIED = 0;
+  EMOTION_INTENSITY_LOW = 1;
+  EMOTION_INTENSITY_MEDIUM = 2;
+  EMOTION_INTENSITY_HIGH = 3;
+}
+
+//  에이전트 감정 업데이트 정보
+message AgentEmotionUpdate {
+  uint32 agent_id = 1;
+  string new_emotion = 2;
+  EmotionIntensity intensity = 3;
+  ProtoEmotionCategory category = 4;
+}
+
+message BatchUpdateAgentStatusRequest {
+  repeated UpdateAgentStatusRequest agents = 1;
+}
+
+message BatchUpdateAgentStatusResponse {
+  int32 updated_count = 1;
+}
+
+// ============================================================
+// TCP 클라이언트 패킷 페이로드 메시지 
+// ============================================================
+
+// CS_LOGIN 페이로드
+message LoginRequest {
+  string player_id = 1;
+  string player_name = 2;
+}
+
+// SC_LOGIN_ACK 페이로드
+message LoginResponse {
+  bool success = 1;
+  string message = 2;
+  repeated LocationInfo locations = 3;    // 월드 내 모든 위치 목록
+  repeated NpcSnapshot npcs = 4;          // 현재 NPC 전체 상태
+}
+
+// 단일 NPC 상태 스냅샷 (SC_WORLD_SNAPSHOT, SC_NPC_UPDATE 공용)
+message NpcSnapshot {
+  uint32 npc_id = 1;
+  string display_name = 2;
+  LocationInfo location = 3;
+  string emotion = 4;
+  string activity = 5;
+  Vector3 velocity = 6;
+}
+
+// SC_WORLD_SNAPSHOT 페이로드
+message WorldSnapshotPayload {
+  int32 tick = 1;
+  repeated NpcSnapshot npcs = 2;
+}
+
+// CS_PLAYER_MOVE 페이로드
+message PlayerMoveRequest {
+  LocationInfo target_location = 1;
+}
+
+// CS_TALK_TO_NPC 페이로드
+message TalkToNpcRequest {
+  uint32 npc_id = 1;
+}
+
+// SC_NPC_REPLY 페이로드
+message NpcReplyPayload {
+  uint64 session_id = 1;
+  string npc_name = 2;
+  string reply_text = 3;
+}
+
+// CS_PLAYER_MESSAGE 페이로드
+message PlayerMessageRequest {
+  uint64 session_id = 1;
+  string message = 2;
+}
+
+// CS_END_DIALOGUE 페이로드
+message EndDialogueRequest {
+  uint64 session_id = 1;
+}
+
+// SC_DIALOGUE_EVENT 페이로드 (NPC 간 대화 이벤트 브로드캐스트)
+message DialogueEventPayload {
+  uint64 task_id = 1;
+  string npc_a_name = 2;
+  string npc_b_name = 3;
+  LocationInfo location = 4;
+  bool is_started = 5;                     // true=대화 시작, false=대화 종료
+  string summary = 6;                     // 완료 시 요약
+  repeated DialogueLine lines = 7;        // 완료 시 대사 목록
+}
+
+// ============================================================
+// Axis 2: Job 및 Interrupt 관리 메시지 정의
+// ============================================================
+
+message GetPendingJobsRequest {
+  int32 current_tick = 1;
+}
+
+message JobPayload {
+  uint32 npc_id = 1;
+  uint64 job_id = 2;
+  LocationInfo target_location = 3;
+  string intent = 4;
+  uint32 target_agent_id = 5; // 선택적 (예: 상호작용 대상 NPC)
+  int32 priority = 6;
+  ProtoJobCategory category = 7;
+}
+
+message GetPendingJobsResponse {
+  repeated JobPayload jobs = 1;
+}
+
+enum InterruptReason {
+  UNKNOWN_REASON = 0;
+  DIALOGUE_BUSY = 1;
+  PHYSICAL_ATTACKED = 2;
+  ENVIRONMENT_CHANGE = 3;
+}
+
+message ReportJobStatusRequest {
+  uint32 npc_id = 1;
+  uint64 job_id = 2;
+  enum JobStatus {
+    COMPLETED = 0;
+    FAILED = 1;
+    INTERRUPTED = 2;
+  }
+  JobStatus status = 3;
+  InterruptReason reason_code = 4;
+  string detailed_context = 5;
+  int32 current_tick = 6;
+}
+
+message ReportJobStatusResponse {
+  bool success = 1;
+  string message = 2;
+  JobPayload new_job = 3; // 인터럽트 후 즉시 새 Job이 할당되었을 때
+}
+
+// ============================================================
+// 4단계: 충동-억제 전투 모델용 메시지 정의
+// ============================================================
+
+message ThreatDetectedRequest {
+  uint32 agent_id = 1;
+  uint32 target_agent_id = 2;
+  int32 aggro_score = 3;
+}
+
+message ThreatDetectedResponse {
+  enum ThreatAction {
+    APPROVE = 0;      // 즉시 공격 승인
+    REJECT = 1;       // 억제 유지 (대기/도주 등)
+    SOCIALIZE = 2;    // 소셜 위협(대화/시비)으로 전환
+  }
+  ThreatAction action = 1;
+}
+
+message ReportCombatEventRequest {
+  uint32 attacker_id = 1;
+  uint32 victim_id = 2;
+  float damage = 3;
+  string weapon = 4;
+}
+
+message ReportCombatEventResponse {
+  bool success = 1;
 }
