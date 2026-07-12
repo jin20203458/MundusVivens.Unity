@@ -12,6 +12,11 @@ public class PacketProcessor : MonoBehaviour
     private const ushort SC_NPC_REPLY       = 0x1005;  // 플레이어에게 NPC 대사 전달
     private const ushort SC_HEARTBEAT_ACK   = 0x10FF;  // 하트비트 응답
 
+    // TODO: [Phase-Avatar] 플레이어 아바타 모드 구현 시 추가 예정
+    // CS_PLAYER_ATTACK (0x0006) 수신 처리 → HandlePlayerAttack()
+    // CS_PLAYER_DEFEND (0x0007) 수신 처리 → HandlePlayerDefend()
+    // → C++에 해당 패킷 정의 및 SystemPlayer.cpp 핸들러 선행 구현 필요
+
     private void Update()
     {
         if (NetworkManager.Instance == null) return;
