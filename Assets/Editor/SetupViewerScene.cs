@@ -160,14 +160,14 @@ public class SetupViewerScene : EditorWindow
             mainCam.gameObject.AddComponent<CameraController>();
         }
 
-        // 바닥 평면(Ground Plane) 생성 (맵 크기 100x100에 맞춰 10배 스케일)
+        // 바닥 평면(Ground Plane) 생성 (전체 맵 크기 2500x2500에 맞춰 250배 스케일 및 중앙 배치)
         GameObject ground = GameObject.Find("GroundPlane");
         if (ground == null)
         {
             ground = GameObject.CreatePrimitive(PrimitiveType.Plane);
             ground.name = "GroundPlane";
-            ground.transform.position = new Vector3(50f, -0.1f, 50f);
-            ground.transform.localScale = new Vector3(10f, 1f, 10f); // 100x100 크기
+            ground.transform.position = new Vector3(1000f, -0.1f, 1000f);
+            ground.transform.localScale = new Vector3(250f, 1f, 250f); // 2500x2500 크기
             
             var renderer = ground.GetComponent<Renderer>();
             if (renderer != null)

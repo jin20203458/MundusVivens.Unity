@@ -8,8 +8,8 @@ public class CameraController : MonoBehaviour
     public float minHeight = 20.0f;
     public float maxHeight = 250.0f;
     
-    public Vector2 minBounds = new Vector2(-50, -250);
-    public Vector2 maxBounds = new Vector2(150, 150);
+    public Vector2 minBounds = new Vector2(-200, -200);
+    public Vector2 maxBounds = new Vector2(2200, 2200);
 
     void Update()
     {
@@ -25,10 +25,17 @@ public class CameraController : MonoBehaviour
             if (Keyboard.current.sKey.isPressed || Keyboard.current.downArrowKey.isPressed) v = -1f;
         }
 
+        // Shift 키를 누르면 5배 가속 (스프린트)
+        float currentSpeed = moveSpeed;
+        if (Keyboard.current != null && Keyboard.current.shiftKey.isPressed)
+        {
+            currentSpeed = moveSpeed * 5.0f;
+        }
+
         Vector3 moveDir = new Vector3(h, 0, v).normalized;
         if (moveDir.magnitude > 0.1f)
         {
-            Vector3 targetMove = new Vector3(moveDir.x, 0, moveDir.z) * moveSpeed * Time.deltaTime;
+            Vector3 targetMove = new Vector3(moveDir.x, 0, moveDir.z) * currentSpeed * Time.deltaTime;
             transform.position += targetMove;
         }
 
