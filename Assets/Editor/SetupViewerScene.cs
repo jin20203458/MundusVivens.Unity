@@ -37,7 +37,7 @@ public class SetupViewerScene : EditorWindow
             int count = 0;
             foreach (var o in objs)
             {
-                if (o.name == name)
+                if (o.name.Trim() == name.Trim())
                 {
                     if (count > 0) DestroyImmediate(o);
                     else count++;

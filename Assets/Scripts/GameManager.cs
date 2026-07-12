@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
-using MundusVivens.Prototype.Protos; // Protobuf 네임스페이스
+using MundusVivens.Prototype.Protos;
 using LocationInfo = MundusVivens.Prototype.Protos.LocationInfo;
 using Vector3 = UnityEngine.Vector3;
 
@@ -9,16 +9,13 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     [Header("Prefabs")]
-    public GameObject npcPrefab;      // NPC를 표현할 프리팹 (2D Sprite 혹은 3D Capsule)
-    public GameObject locationPrefab; // 랜드마크(마을 광장, 술집 등)를 표현할 프리팹
+    public GameObject npcPrefab;
+    public GameObject locationPrefab;
 
     [Header("State")]
     public int CurrentTick = 0;
 
-    // NPC ID를 키로 하여 씬에 배치된 NPC 컨트롤러들을 관리합니다.
     private Dictionary<uint, NpcController> _npcDict = new Dictionary<uint, NpcController>();
-    
-    // 랜드마크 이름 보관용
     private Dictionary<string, GameObject> _locationDict = new Dictionary<string, GameObject>();
 
     private void Awake()
@@ -29,64 +26,62 @@ public class GameManager : MonoBehaviour
     // 서버 접속 직후 한 번만 호출됨
     public void InitializeWorld(IEnumerable<LocationInfo> locations, IEnumerable<NpcSnapshot> initialNpcs)
     {
-                // 1. 랜드마크 스폰
         foreach (var loc in locations)
         {
-            if (!_locationDict.ContainsKey(loc.Name))
+            if (_locationDict.ContainsKey(loc.Name)) continue;
+
+            Vector3 pos = new Vector3(loc.Position.X, loc.Position.Y, loc.Position.Z);
+            GameObject go = Instantiate(locationPrefab, pos, Quaternion.identity, this.transform);
+            go.name = $"Location_{loc.Name}";
+
+            // 위치 표시용 큐브 생성
+            GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            cube.transform.SetParent(go.transform, false);
+            cube.transform.localScale = new Vector3(4f, 0.5f, 4f);
+            cube.transform.localPosition = Vector3.zero;
+
+            var renderer = cube.GetComponent<Renderer>();
+            if (renderer != null)
             {
-                Vector3 pos = new Vector3(loc.Position.X, loc.Position.Y, loc.Position.Z);
-                GameObject go = Instantiate(locationPrefab, pos, Quaternion.identity, this.transform);
-                go.name = $"Location_{loc.Name}";
-                // 2. 위치에 시각적인 큐브 생성 (위치 표시용)
-                GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                cube.transform.SetParent(go.transform, false);
-                cube.transform.localScale = new Vector3(4f, 0.5f, 4f);
-                cube.transform.localPosition = Vector3.zero;
-                
-                var renderer = cube.GetComponent<Renderer>();
-                if (renderer != null)
-                {
-                    Material mat = new Material(Shader.Find("Universal Render Pipeline/Lit"));
-                    if (mat.shader == null) mat = new Material(Shader.Find("Standard"));
-                    mat.color = new Color(0.2f, 0.6f, 1.0f); // 파란색 큐브
-                    if (mat.HasProperty("_BaseColor")) mat.SetColor("_BaseColor", new Color(0.2f, 0.6f, 1.0f));
-                    renderer.sharedMaterial = mat;
-                }
-
-                // 간단히 위치 이름 표시 (자식 객체에 TextMeshPro가 있다고 가정, 없으면 강제 생성)
-                var tmpro = go.GetComponentInChildren<TMPro.TextMeshPro>();
-                if (tmpro == null)
-                {
-                    GameObject textGo = new GameObject("LocationNameText");
-                    textGo.transform.SetParent(go.transform, false);
-                    tmpro = textGo.AddComponent<TMPro.TextMeshPro>();
-                    tmpro.alignment = TMPro.TextAlignmentOptions.Center;
-                }
-                tmpro.transform.localScale = Vector3.one; // 프리팹 스케일 왜곡 방지
-                tmpro.transform.localPosition = new Vector3(0, 0.05f, 0); // 바닥 높이로 조정하여 NPC와 겹치지 않게 함
-                tmpro.text = loc.Name;
-                tmpro.fontSize = 12.0f; // 글씨 크기 확대 (월드 스페이스 단위 12미터 크기)
-                tmpro.color = new Color(0.2f, 0.6f, 1.0f, 0.6f); // 반투명 푸른색으로 깔끔하게 처리
-                tmpro.transform.rotation = Quaternion.Euler(90f, 0, 0); // 완전 탑다운 방향(90도)으로 눕혀서 정면으로 보이게 함
-
-                _locationDict[loc.Name] = go;
+                Material mat = new Material(Shader.Find("Universal Render Pipeline/Lit"));
+                if (mat.shader == null) mat = new Material(Shader.Find("Standard"));
+                Color blue = new Color(0.2f, 0.6f, 1.0f);
+                mat.color = blue;
+                if (mat.HasProperty("_BaseColor")) mat.SetColor("_BaseColor", blue);
+                renderer.sharedMaterial = mat;
             }
+
+            // 위치 이름 텍스트 (자식에 TextMeshPro가 없으면 동적 생성)
+            var tmpro = go.GetComponentInChildren<TMPro.TextMeshPro>();
+            if (tmpro == null)
+            {
+                GameObject textGo = new GameObject("LocationNameText");
+                textGo.transform.SetParent(go.transform, false);
+                tmpro = textGo.AddComponent<TMPro.TextMeshPro>();
+                tmpro.alignment = TMPro.TextAlignmentOptions.Center;
+            }
+            tmpro.transform.localScale = Vector3.one;
+            tmpro.transform.localPosition = new Vector3(0, 0.05f, 0);
+            tmpro.text = loc.Name;
+            tmpro.fontSize = 3.0f;
+            tmpro.enableWordWrapping = false;
+            tmpro.color = new Color(0.2f, 0.6f, 1.0f, 0.6f);
+            tmpro.transform.rotation = Quaternion.Euler(90f, 0, 0);
+
+            _locationDict[loc.Name] = go;
         }
 
-        // 2. 초기 NPC 스폰
         foreach (var npc in initialNpcs)
         {
             SpawnOrUpdateNpc(npc);
         }
     }
 
-    // 매 틱마다 불리며 모든 NPC의 상태(좌표/감정) 갱신
+    // 매 틱마다 호출되어 모든 NPC 상태(좌표/감정) 갱신
     public void UpdateWorldSnapshot(int tick, IEnumerable<NpcSnapshot> npcs)
     {
         CurrentTick = tick;
-        
-        // 상단 UI나 터미널에 현재 틱 표시 가능
-        if (UIManager.Instance != null) UIManager.Instance.UpdateTickDisplay(tick);
+        UIManager.Instance?.UpdateTickDisplay(tick);
 
         foreach (var npc in npcs)
         {
@@ -94,72 +89,73 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // 단일 NPC 긴급 업데이트 (돌발 행동 등)
-    public void UpdateSingleNpc(NpcSnapshot npc)
-    {
-        SpawnOrUpdateNpc(npc);
-    }
-
     private void SpawnOrUpdateNpc(NpcSnapshot npcData)
     {
         if (!_npcDict.TryGetValue(npcData.NpcId, out NpcController controller))
         {
-            // 아직 스폰되지 않은 NPC라면 생성
-            Vector3 startPos = new Vector3(npcData.Location.Position.X, npcData.Location.Position.Y, npcData.Location.Position.Z);
+            Vector3 startPos = new Vector3(
+                npcData.Location.Position.X,
+                npcData.Location.Position.Y,
+                npcData.Location.Position.Z);
+
             GameObject go = Instantiate(npcPrefab, startPos, Quaternion.identity);
             go.name = $"NPC_{npcData.DisplayName}";
-            
-            // NPC 시각적 캡슐 생성
+
+            // 시각적 캡슐 생성
             GameObject capsule = GameObject.CreatePrimitive(PrimitiveType.Capsule);
             capsule.transform.SetParent(go.transform, false);
             capsule.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
             capsule.transform.localPosition = new Vector3(0, 1.5f, 0);
-            
+
+            // 자식 콜라이더를 삭제하고 부모(go)에 장착하여 OnMouseDown이 NpcController에서 정상 감지되도록 함
+            var childCollider = capsule.GetComponent<Collider>();
+            if (childCollider != null) Destroy(childCollider);
+
+            var parentCollider = go.AddComponent<CapsuleCollider>();
+            parentCollider.center = new Vector3(0, 1.5f, 0);
+            parentCollider.height = 3.0f;
+            parentCollider.radius = 0.75f;
+
             var renderer = capsule.GetComponent<Renderer>();
             if (renderer != null)
             {
                 Material mat = new Material(Shader.Find("Universal Render Pipeline/Lit"));
                 if (mat.shader == null) mat = new Material(Shader.Find("Standard"));
-                
-                Color capsuleColor = new Color(1.0f, 0.5f, 0.2f); // 기본: 주황색 (일반 NPC)
-                if (npcData.DisplayName.Contains("늑대") || npcData.DisplayName.Contains("고블린") || 
-                    npcData.DisplayName.ToLower().Contains("wolf") || npcData.DisplayName.ToLower().Contains("goblin"))
-                {
-                    capsuleColor = new Color(0.85f, 0.1f, 0.1f); // 빨간색: 몬스터
-                }
-                else if (npcData.DisplayName.Contains("플레이어") || npcData.DisplayName.ToLower().Contains("player"))
-                {
-                    capsuleColor = new Color(0.1f, 0.7f, 0.2f); // 초록색: 플레이어 아바타
-                }
+
+                Color capsuleColor;
+                string name = npcData.DisplayName;
+                if (name.Contains("늑대") || name.Contains("고블린") ||
+                    name.ToLower().Contains("wolf") || name.ToLower().Contains("goblin"))
+                    capsuleColor = new Color(0.85f, 0.1f, 0.1f);     // 빨간색: 몬스터
+                else if (name.Contains("플레이어") || name.ToLower().Contains("player"))
+                    capsuleColor = new Color(0.1f, 0.7f, 0.2f);      // 초록색: 플레이어 아바타
+                else
+                    capsuleColor = new Color(1.0f, 0.5f, 0.2f);      // 주황색: 일반 NPC
 
                 mat.color = capsuleColor;
                 if (mat.HasProperty("_BaseColor")) mat.SetColor("_BaseColor", capsuleColor);
                 renderer.sharedMaterial = mat;
             }
-            
+
             controller = go.GetComponent<NpcController>();
             controller.Initialize(npcData.NpcId, npcData.DisplayName);
-            
             _npcDict[npcData.NpcId] = controller;
-            Debug.Log($"[GameManager] Spawned NPC: {npcData.DisplayName} (ID: {npcData.NpcId}) at Pos: {startPos}");
+
+            Debug.Log($"[GameManager] Spawned NPC: {npcData.DisplayName} (ID: {npcData.NpcId})");
         }
 
-        // NPC 정보 갱신 (목표 좌표, 상태 등 전달)
-        Debug.Log($"[GameManager] Updating NPC: {npcData.DisplayName} (ID: {npcData.NpcId}) -> Pos: ({npcData.Location.Position.X}, {npcData.Location.Position.Y}, {npcData.Location.Position.Z}), Activity: {npcData.Activity}");
         controller.UpdateStateFromServer(npcData);
     }
-    
-    // UI에서 접근하기 편하게 NPC 이름 조회용 헬퍼 함수
+
+    // NPC ID로 이름 조회 헬퍼
     public string GetNpcName(uint npcId)
     {
-        if (_npcDict.TryGetValue(npcId, out var controller))
-        {
-            return controller.DisplayName;
-        }
-        return $"Unknown({npcId})";
+        return _npcDict.TryGetValue(npcId, out var controller)
+            ? controller.DisplayName
+            : $"Unknown({npcId})";
     }
 
-    // 3D 뷰어 대사 시퀀스 출력 제어
+    // 3D 뷰어 NPC 머리 위 대사 시퀀스 재생
     public void PlayDialogueBubbleSequence(IList<DialogueLine> lines)
     {
         StartCoroutine(DialogueBubbleCoroutine(lines));
@@ -171,10 +167,8 @@ public class GameManager : MonoBehaviour
         {
             if (_npcDict.TryGetValue(line.SpeakerId, out var controller))
             {
-                // 말풍선 대사 출력 (3.5초 유지)
                 controller.ShowSpeechBubble(line.Text, 3.5f);
             }
-            // 다음 대사가 말할 때까지 4.0초 대기 (말이 번갈아가며 연출되도록 함)
             yield return new WaitForSeconds(4.0f);
         }
     }

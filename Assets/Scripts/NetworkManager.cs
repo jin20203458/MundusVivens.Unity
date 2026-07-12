@@ -229,6 +229,18 @@ public class NetworkManager : MonoBehaviour
         SendPacket(0x0001, payload);
     }
 
+    // 특정 에이전트의 상세 상태/기억 조회 요청 (CS_GET_AGENT_STATUS = 0x0008)
+    public void SendGetAgentStatus(uint agentId)
+    {
+        var req = new MundusVivens.Prototype.Protos.GetAgentStatusRequest
+        {
+            AgentId = agentId
+        };
+
+        byte[] payload = Google.Protobuf.MessageExtensions.ToByteArray(req);
+        SendPacket(0x0008, payload);
+    }
+
     private void OnApplicationQuit()
     {
         _isRunning = false;
