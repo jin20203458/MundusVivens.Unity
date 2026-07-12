@@ -20,6 +20,8 @@ public class NpcController : MonoBehaviour
     private Vector3 _targetPosition;
     private string _currentEmotion;
     private string _currentActivity;
+    private float _currentHp = 100f;
+    private float _maxHp = 100f;
 
     public void Initialize(uint npcId, string displayName)
     {
@@ -36,15 +38,16 @@ public class NpcController : MonoBehaviour
 
         if (nameText != null)
         {
-            nameText.text = displayName;
-            nameText.fontSize = 20f;
-            nameText.transform.localPosition = new Vector3(0, 4.0f, 0);
+            nameText.fontSize = 1.2f; // 월드 스페이스 단위 (1.2미터 크기)
+            nameText.alignment = TMPro.TextAlignmentOptions.Center;
+            nameText.transform.localPosition = new Vector3(0, 3.8f, 0); // Y축 배치 조정
             nameText.transform.rotation = UnityEngine.Quaternion.Euler(90f, 0, 0);
         }
         if (statusText != null)
         {
-            statusText.fontSize = 14f;
-            statusText.transform.localPosition = new Vector3(0, 3.0f, 0);
+            statusText.fontSize = 0.8f; // 월드 스페이스 단위 (0.8미터 크기)
+            statusText.alignment = TMPro.TextAlignmentOptions.Center;
+            statusText.transform.localPosition = new Vector3(0, 2.8f, 0); // Y축 배치 조정
             statusText.transform.rotation = UnityEngine.Quaternion.Euler(90f, 0, 0);
         }
 
@@ -61,6 +64,8 @@ public class NpcController : MonoBehaviour
         
         _currentEmotion = snapshot.Emotion;
         _currentActivity = snapshot.Activity;
+        _currentHp = snapshot.Hp;
+        _maxHp = snapshot.MaxHp;
 
         if (Vector3.Distance(previousTarget, _targetPosition) > 0.01f)
         {
@@ -72,6 +77,11 @@ public class NpcController : MonoBehaviour
 
     private void UpdateStatusText()
     {
+        if (nameText != null)
+        {
+            string hpString = _currentHp <= 0f ? "<color=red>💀 [사망]</color>" : $"<color=#00FF66>{_currentHp:F0}</color>/{_maxHp:F0}";
+            nameText.text = $"{DisplayName} ({hpString})";
+        }
         if (statusText != null)
         {
             statusText.text = $"[{_currentEmotion}]\n{_currentActivity}";
