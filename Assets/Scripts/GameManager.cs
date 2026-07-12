@@ -157,4 +157,24 @@ public class GameManager : MonoBehaviour
         }
         return $"Unknown({npcId})";
     }
+
+    // 3D 뷰어 대사 시퀀스 출력 제어
+    public void PlayDialogueBubbleSequence(IList<DialogueLine> lines)
+    {
+        StartCoroutine(DialogueBubbleCoroutine(lines));
+    }
+
+    private System.Collections.IEnumerator DialogueBubbleCoroutine(IList<DialogueLine> lines)
+    {
+        foreach (var line in lines)
+        {
+            if (_npcDict.TryGetValue(line.SpeakerId, out var controller))
+            {
+                // 말풍선 대사 출력 (3.5초 유지)
+                controller.ShowSpeechBubble(line.Text, 3.5f);
+            }
+            // 다음 대사가 말할 때까지 4.0초 대기 (말이 번갈아가며 연출되도록 함)
+            yield return new WaitForSeconds(4.0f);
+        }
+    }
 }

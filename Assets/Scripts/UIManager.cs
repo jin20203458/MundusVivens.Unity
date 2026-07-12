@@ -55,6 +55,12 @@ public class UIManager : MonoBehaviour
                     logMessage += $"\n<b>{line.SpeakerName}:</b> {line.Text}";
                 }
                 logMessage += "\n<color=silver>-----------------</color>";
+
+                // 3D 뷰어의 NPC들 머리 위에 차례대로 말풍선 재생
+                if (GameManager.Instance != null)
+                {
+                    GameManager.Instance.PlayDialogueBubbleSequence(payload.Lines);
+                }
             }
         }
 

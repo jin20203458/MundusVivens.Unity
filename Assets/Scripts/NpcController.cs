@@ -105,6 +105,32 @@ public class NpcController : MonoBehaviour
         }
     }
 
+    private GameObject _activeSpeechBubbleGo;
+
+    public void ShowSpeechBubble(string text, float duration)
+    {
+        // 기존에 출력 중인 말풍선이 있다면 먼저 파괴
+        if (_activeSpeechBubbleGo != null)
+        {
+            Destroy(_activeSpeechBubbleGo);
+        }
+
+        // 새 말풍선 오브젝트 생성 (이름 텍스트보다 살짝 높은 Y=5.5 위치)
+        _activeSpeechBubbleGo = new GameObject("SpeechBubbleText");
+        _activeSpeechBubbleGo.transform.SetParent(transform, false);
+        _activeSpeechBubbleGo.transform.localPosition = new Vector3(0, 5.2f, 0); 
+        _activeSpeechBubbleGo.transform.rotation = UnityEngine.Quaternion.Euler(90f, 0, 0);
+
+        var tmpro = _activeSpeechBubbleGo.AddComponent<TMPro.TextMeshPro>();
+        tmpro.alignment = TMPro.TextAlignmentOptions.Center;
+        tmpro.fontSize = 1.0f; // 가독성 최적화 크기
+        tmpro.color = new Color(1.0f, 0.9f, 0.2f); // 밝은 연노랑색 대사
+        tmpro.text = $"💬 \"{text}\"";
+
+        // 지정된 시간(초) 후에 자동 파괴
+        Destroy(_activeSpeechBubbleGo, duration);
+    }
+
     // 마우스 클릭 시 UIManager에 상세 정보 패널을 열도록 이벤트를 보낼 수 있습니다.
     private void OnMouseDown()
     {
