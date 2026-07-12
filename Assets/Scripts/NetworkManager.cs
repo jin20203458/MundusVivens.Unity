@@ -64,6 +64,7 @@ public class NetworkManager : MonoBehaviour
             
             _tcpClient = new TcpClient();
             System.Threading.Tasks.Task connectTask;
+            bool connectFailed = false;
             try
             {
                 connectTask = _tcpClient.ConnectAsync(serverIp, serverPort);
@@ -71,6 +72,11 @@ public class NetworkManager : MonoBehaviour
             catch (Exception ex)
             {
                 Debug.LogWarning($"[Network] ConnectAsync failed immediately: {ex.Message}");
+                connectFailed = true;
+            }
+
+            if (connectFailed)
+            {
                 yield return new WaitForSeconds(5f);
                 continue;
             }
